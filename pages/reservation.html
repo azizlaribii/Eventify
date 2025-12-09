@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Réservation</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .reservation-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 600px;
+            padding: 20px 50px;
+        }
+
+        .reservation-graphic {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .reservation-graphic img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+        }
+
+        .reservation-form-container {
+            flex: 1;
+            max-width: 500px;
+            margin-left: 50px;
+        }
+
+        .reservation-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .reservation-form-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .reservation-label {
+            width: 150px;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+
+        .reservation-input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border-radius: 20px;
+            border: 1px solid #aaa;
+            background-color: #eee;
+            /* Adjust to match image "grayish" look */
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .reservation-input:focus {
+            background-color: #fff;
+            border-color: var(--color-primary);
+        }
+
+        .date-icon-wrapper {
+            position: relative;
+            flex-grow: 1;
+        }
+
+        .date-icon-wrapper input {
+            width: 100%;
+        }
+
+        .input-icon-right {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #333;
+        }
+
+        .reservation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+
+        .btn-white-pill {
+            background-color: white;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 25px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+        }
+
+        .btn-white-pill:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        @media (max-width: 900px) {
+            .reservation-content {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .reservation-form-container {
+                margin-left: 0;
+                margin-top: 30px;
+                width: 100%;
+            }
+
+            .reservation-label {
+                width: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES DEMANDES</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <div class="reservation-content">
+            <div class="reservation-graphic">
+                <!-- Using a random illustration to match the vibe -->
+                <img src="https://picsum.photos/600/600?random=123" alt="Reservation Graphic">
+            </div>
+
+            <div class="reservation-form-container">
+                <h2 class="reservation-title">RÉSERVER VOTRE PLACE</h2>
+
+                <form>
+                    <div class="reservation-form-group">
+                        <label class="reservation-label">NOM:</label>
+                        <input type="text" class="reservation-input">
+                    </div>
+
+                    <div class="reservation-form-group">
+                        <label class="reservation-label">PRENOM:</label>
+                        <input type="text" class="reservation-input">
+                    </div>
+
+                    <div class="reservation-form-group">
+                        <label class="reservation-label">CLASSE:</label>
+                        <input type="text" class="reservation-input">
+                    </div>
+
+                    <div class="reservation-form-group">
+                        <label class="reservation-label">EMAIL :</label>
+                        <input type="email" class="reservation-input">
+                    </div>
+
+                    <div class="reservation-form-group">
+                        <label class="reservation-label">DATE DE NAISSANCE:</label>
+                        <div class="date-icon-wrapper">
+                            <input type="text" class="reservation-input">
+                            <i class="far fa-calendar-alt input-icon-right"></i>
+                        </div>
+                    </div>
+
+                    <div class="reservation-buttons">
+                        <button type="button" class="btn-white-pill" onclick="window.history.back()">Retour a
+                            l'evenement</button>
+                        <button type="submit" class="btn-white-pill">Confirmer</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

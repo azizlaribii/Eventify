@@ -1,0 +1,21 @@
+$color-primary: #5c4033;
+$color-secondary: #a0846c;
+$color-background: #f5f0eb;
+$color-text: #333;
+$color-success: #4CAF50;
+$color-pending: #ffc107;
+$color-error: #dc3545;
+$color-white: #fff;
+$font-family: 'Arial', sans-serif;
+
+// Map for easy iteration if needed (optional)
+$colors: (
+  primary: $color-primary,
+  secondary: $color-secondary,
+  background: $color-background,
+  text: $color-text,
+  success: $color-success,
+  pending: $color-pending,
+  error: $color-error,
+  white: $color-white
+);

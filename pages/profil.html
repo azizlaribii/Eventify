@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Profil</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Styles moved to scss/pages/_profile.scss -->
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES DEMANDES</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <h1 class="section-title">MON PROFIL</h1>
+
+        <div class="profile-container">
+            <!-- Sidebar with Personal Info -->
+            <div class="profile-sidebar">
+                <img src="https://i.pravatar.cc/150?img=11" alt="Profile Picture" class="profile-avatar-large">
+                <div class="profile-name">AHMED KALLEL</div>
+                <div class="profile-role">Étudiant - Génie Logiciel</div>
+
+                <div class="profile-stats-row">
+                    <div class="profile-stat-item">
+                        <div class="profile-stat-value">12</div>
+                        <div class="profile-stat-label">Missions</div>
+                    </div>
+                    <div class="profile-stat-item">
+                        <div class="profile-stat-value">4.8</div>
+                        <div class="profile-stat-label">Note</div>
+                    </div>
+                    <div class="profile-stat-item">
+                        <div class="profile-stat-value">55</div>
+                        <div class="profile-stat-label">Avis</div>
+                    </div>
+                </div>
+
+                <div class="profile-contact-info">
+                    <div class="profile-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>ahmed.kallel@esprit.tn</span>
+                    </div>
+                    <div class="profile-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+216 25 555 666</span>
+                    </div>
+                    <div class="profile-contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Tunis, Ariana</span>
+                    </div>
+                    <div class="profile-contact-item">
+                        <i class="fas fa-university"></i>
+                        <span>ESPRIT</span>
+                    </div>
+                </div>
+
+                <div class="profile-skills">
+                    <div style="font-weight: bold; margin-bottom: 10px; font-size: 14px;">INTÉRÊTS</div>
+                    <span class="skill-tag">Sport</span>
+                    <span class="skill-tag">Programmation</span>
+                    <span class="skill-tag">Gaming</span>
+                    <span class="skill-tag">Partage</span>
+                </div>
+
+                <button class="button button-primary" style="margin-top: 25px; width: 100%;">Modifier Profil</button>
+            </div>
+
+            <!-- Main Content with Bio and Activity -->
+            <div class="profile-main">
+                <div class="profile-section-card">
+                    <div class="profile-section-header">
+                        <div class="profile-section-title">À PROPOS</div>
+                        <i class="fas fa-pen edit-icon"></i>
+                    </div>
+                    <p class="bio-text">
+                        Étudiant passionné par l'entraide et la technologie. Je suis toujours disponible pour aider mes
+                        camarades sur le campus, que ce soit pour récupérer un document, apporter un café ou aider pour
+                        un projet. N'hésitez pas à me contacter !
+                    </p>
+                </div>
+
+                <div class="profile-section-card">
+                    <div class="profile-section-header">
+                        <div class="profile-section-title">ACTIVITÉ RÉCENTE</div>
+                        <div style="font-size: 12px; color: var(--color-primary); cursor: pointer;">Voir tout</div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon-container">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">Mission complétée : "Acheter un stylo"</div>
+                            <div class="activity-time">Aujourd'hui, 10:30</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon-container">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">A commenté sur le post de Sarah</div>
+                            <div class="activity-time">Hier, 14:15</div>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon-container">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="activity-details">
+                            <div class="activity-title">A reçu une note de 5 étoiles de Karim</div>
+                            <div class="activity-time">12 Nov, 09:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-section-card">
+                    <div class="profile-section-header">
+                        <div class="profile-section-title">BADGES</div>
+                    </div>
+                    <div style="display: flex; gap: 15px;">
+                        <div style="text-align: center;">
+                            <i class="fas fa-medal" style="font-size: 32px; color: gold; margin-bottom: 5px;"></i>
+                            <div style="font-size: 12px; font-weight: bold;">Super Helper</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-rocket"
+                                style="font-size: 32px; color: var(--color-primary); margin-bottom: 5px;"></i>
+                            <div style="font-size: 12px; font-weight: bold;">Rapide</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <i class="fas fa-users"
+                                style="font-size: 32px; color: var(--color-secondary); margin-bottom: 5px;"></i>
+                            <div style="font-size: 12px; font-weight: bold;">Sociable</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

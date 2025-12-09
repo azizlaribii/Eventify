@@ -1,0 +1,23 @@
+@use '../base/variables' as *;
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    outline: none;
+
+    &:focus {
+        border-color: $color-secondary;
+        background-color: $color-white;
+    }
+}
+
+.form-label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: $color-primary;
+}
