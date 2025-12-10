@@ -1,31 +1,10 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "*.html",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "pages/*.html",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "css/*",
-            "use": "@vercel/static"
-        },
-        {
-            "src": "public/*",
-            "use": "@vercel/static"
-        }
-    ],
+    "buildCommand": "npm run build",
+    "outputDirectory": ".vercel/output/static",
     "routes": [
         {
             "src": "/",
-            "dest": "/pages/chat.html"
-        },
-        {
-            "src": "/(.*)",
-            "dest": "/pages/$1"
+            "dest": "/pages/accueil.html"
         }
     ]
 }
