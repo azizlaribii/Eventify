@@ -1,0 +1,20 @@
+{
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/pages/index.html"
+        },
+        {
+            "source": "/chat",
+            "destination": "/pages/chat.html"
+        },
+        {
+            "source": "/profil",
+            "destination": "/pages/profil.html"
+        },
+        {
+            "source": "/meeting",
+            "destination": "/pages/meeting.html"
+        }
+    ]
+}
