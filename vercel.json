@@ -1,14 +1,19 @@
 {
-    "buildCommand": "npm run vercel-build",
-    "outputDirectory": ".vercel/output/static",
-    "rewrites": [
+    "version": 2,
+    "builds": [
         {
-            "source": "/",
-            "destination": "/accueil.html"
+            "src": "**/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/pages/accueil.html"
         },
         {
-            "source": "/(.*)",
-            "destination": "/$1.html"
+            "src": "/(.*)",
+            "dest": "/pages/$1"
         }
     ]
 }

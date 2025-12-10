@@ -7,8 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:sass": "sass scss/main.scss css/style.css",
     "watch:sass": "sass --watch scss/main.scss css/style.css",
-    "build": "echo 'Building static site' && find . -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.png' -o -name '*.jpg' | head -5",
-    "build:tailwind": "npx tailwindcss -i ./css/input.css -o ./public/tailwind.css --watch"
+    "build": "npm run build:css && npm run copy:files",
+    "build:css": "sass scss/main.scss css/style.css && npx tailwindcss -i ./css/input.css -o ./public/tailwind.css --minify",
+    "copy:files": "mkdir -p .vercel/output/static && cp -r pages/* .vercel/output/static/ && cp -r css .vercel/output/static/ && cp -r public .vercel/output/static/",
+    "build:tailwind": "npx tailwindcss -i ./css/input.css -o ./public/tailwind.css --watch",
+    "vercel-build": "npm run build"
   },
   "keywords": [],
   "author": "",
