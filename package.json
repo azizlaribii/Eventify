@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile:sass": "sass scss/main.scss css/style.css",
     "watch:sass": "sass --watch scss/main.scss css/style.css",
-
+    "build": "echo 'Building static site' && find . -name '*.html' -o -name '*.css' -o -name '*.js' -o -name '*.png' -o -name '*.jpg' | head -5",
     "build:tailwind": "npx tailwindcss -i ./css/input.css -o ./public/tailwind.css --watch"
   },
   "keywords": [],

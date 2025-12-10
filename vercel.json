@@ -1,20 +1,31 @@
 {
-    "rewrites": [
+    "version": 2,
+    "builds": [
         {
-            "source": "/",
-            "destination": "/pages/index.html"
+            "src": "*.html",
+            "use": "@vercel/static"
         },
         {
-            "source": "/chat",
-            "destination": "/pages/chat.html"
+            "src": "pages/*.html",
+            "use": "@vercel/static"
         },
         {
-            "source": "/profil",
-            "destination": "/pages/profil.html"
+            "src": "css/*",
+            "use": "@vercel/static"
         },
         {
-            "source": "/meeting",
-            "destination": "/pages/meeting.html"
+            "src": "public/*",
+            "use": "@vercel/static"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/",
+            "dest": "/pages/chat.html"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/pages/$1"
         }
     ]
 }
