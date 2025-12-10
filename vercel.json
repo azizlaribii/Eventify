@@ -1,32 +1,14 @@
 {
-    "buildCommand": "npm run build",
+    "buildCommand": "npm run vercel-build",
     "outputDirectory": ".vercel/output/static",
     "rewrites": [
         {
             "source": "/",
-            "destination": "/pages/accueil.html"
+            "destination": "/accueil.html"
         },
         {
-            "source": "/chat",
-            "destination": "/pages/chat.html"
-        },
-        {
-            "source": "/profil",
-            "destination": "/pages/profil.html"
-        },
-        {
-            "source": "/meeting",
-            "destination": "/pages/meeting.html"
-        },
-        {
-            "source": "/demandes",
-            "destination": "/pages/demandes_disponibles.html"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/pages/$1"
+            "source": "/(.*)",
+            "destination": "/$1.html"
         }
     ]
 }
