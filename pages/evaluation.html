@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,11 +85,36 @@
             border-radius: 5px;
         }
 
-        .progress-bar-5 { width: 80%; background-color: #4CAF50; } /* Green */
-        .progress-bar-4 { width: 60%; background-color: #8BC34A; } /* Light Green */
-        .progress-bar-3 { width: 40%; background-color: #FFC107; } /* Amber */
-        .progress-bar-2 { width: 20%; background-color: #FF9800; } /* Orange */
-        .progress-bar-1 { width: 10%; background-color: #F44336; } /* Red */
+        .progress-bar-5 {
+            width: 80%;
+            background-color: #4CAF50;
+        }
+
+        /* Green */
+        .progress-bar-4 {
+            width: 60%;
+            background-color: #8BC34A;
+        }
+
+        /* Light Green */
+        .progress-bar-3 {
+            width: 40%;
+            background-color: #FFC107;
+        }
+
+        /* Amber */
+        .progress-bar-2 {
+            width: 20%;
+            background-color: #FF9800;
+        }
+
+        /* Orange */
+        .progress-bar-1 {
+            width: 10%;
+            background-color: #F44336;
+        }
+
+        /* Red */
 
         .rating-count {
             font-size: 14px;
@@ -162,15 +188,19 @@
             .stats-grid {
                 grid-template-columns: 1fr;
             }
+
             .review-item {
                 flex-direction: column;
             }
+
             .reviewer-info {
                 width: 100%;
             }
         }
     </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -206,7 +236,8 @@
             <div class="stat-card">
                 <div class="stat-card-value">4.0</div>
                 <div class="rating-stars">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="far fa-star"></i>
                 </div>
                 <div class="stat-card-label">NOTE MOYENNE</div>
                 <div class="stat-card-label">NOTE MOYENNE SUR LES AVIS</div>
@@ -216,27 +247,37 @@
                 <div class="rating-distribution">
                     <div class="rating-bar-row">
                         <div class="rating-star-icon">5 <i class="fas fa-star"></i></div>
-                        <div class="progress-bar-container"><div class="progress-bar progress-bar-5"></div></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar progress-bar-5"></div>
+                        </div>
                         <div class="rating-count">2.0K</div>
                     </div>
                     <div class="rating-bar-row">
                         <div class="rating-star-icon">4 <i class="fas fa-star"></i></div>
-                        <div class="progress-bar-container"><div class="progress-bar progress-bar-4"></div></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar progress-bar-4"></div>
+                        </div>
                         <div class="rating-count">1.5K</div>
                     </div>
                     <div class="rating-bar-row">
                         <div class="rating-star-icon">3 <i class="fas fa-star"></i></div>
-                        <div class="progress-bar-container"><div class="progress-bar progress-bar-3"></div></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar progress-bar-3"></div>
+                        </div>
                         <div class="rating-count">1.0K</div>
                     </div>
                     <div class="rating-bar-row">
                         <div class="rating-star-icon">2 <i class="fas fa-star"></i></div>
-                        <div class="progress-bar-container"><div class="progress-bar progress-bar-2"></div></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar progress-bar-2"></div>
+                        </div>
                         <div class="rating-count">100</div>
                     </div>
                     <div class="rating-bar-row">
                         <div class="rating-star-icon">1 <i class="fas fa-star"></i></div>
-                        <div class="progress-bar-container"><div class="progress-bar progress-bar-1"></div></div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar progress-bar-1"></div>
+                        </div>
                         <div class="rating-count">50</div>
                     </div>
                 </div>
@@ -254,12 +295,15 @@
                 <div class="review-content">
                     <div class="review-header">
                         <div class="rating-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i>
                         </div>
                         <div class="review-date">10-11-2024</div>
                     </div>
                     <div class="review-text">
-                        "CETTE APP A CHANGÉ MA VIE ÉTUDIANTE ! J'AI PU TROUVER QUELQU'UN POUR M'ACHETER UN CAFÉ ET J'AI MÊME GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS. ET JE NE RATE PLUS AUCUN ÉVÉNEMENT DU CAMPUS"
+                        "CETTE APP A CHANGÉ MA VIE ÉTUDIANTE ! J'AI PU TROUVER QUELQU'UN POUR M'ACHETER UN CAFÉ ET J'AI
+                        MÊME GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS. ET JE NE RATE PLUS AUCUN ÉVÉNEMENT DU
+                        CAMPUS"
                     </div>
                     <div class="comment-public">
                         Commentaire public <i class="far fa-heart"></i>
@@ -277,12 +321,14 @@
                 <div class="review-content">
                     <div class="review-header">
                         <div class="rating-stars">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i>
                         </div>
                         <div class="review-date">12-11-2024</div>
                     </div>
                     <div class="review-text">
-                        "UNE VRAIE RÉVOLUTION POUR LA VIE ÉTUDIANTE : ÉCHANGES RAPIDES, AIDE ENTRE ÉTUDIANTS ET AGENDA DU CAMPUS TOUJOURS À JOUR !"
+                        "UNE VRAIE RÉVOLUTION POUR LA VIE ÉTUDIANTE : ÉCHANGES RAPIDES, AIDE ENTRE ÉTUDIANTS ET AGENDA
+                        DU CAMPUS TOUJOURS À JOUR !"
                     </div>
                     <div class="comment-public">
                         Commentaire public <i class="far fa-heart"></i>
@@ -305,4 +351,5 @@
     </footer>
 
 </body>
+
 </html>

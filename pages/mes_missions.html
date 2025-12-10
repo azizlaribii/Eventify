@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,7 +69,8 @@
 
         .mission-item {
             display: grid;
-            grid-template-columns: 80px 1fr 1fr 2fr 1fr 1fr; /* Avatar, Title, Date, Description, Status, Action */
+            grid-template-columns: 80px 1fr 1fr 2fr 1fr 1fr;
+            /* Avatar, Title, Date, Description, Status, Action */
             align-items: center;
             padding: 15px 0;
             border-bottom: 1px solid #eee;
@@ -142,9 +144,18 @@
             background-color: #333;
         }
 
-        .color-dot:nth-child(2) { background-color: var(--color-primary); }
-        .color-dot:nth-child(3) { background-color: var(--color-secondary); }
-        .color-dot:nth-child(4) { background-color: var(--color-background); border: 1px solid #ccc; }
+        .color-dot:nth-child(2) {
+            background-color: var(--color-primary);
+        }
+
+        .color-dot:nth-child(3) {
+            background-color: var(--color-secondary);
+        }
+
+        .color-dot:nth-child(4) {
+            background-color: var(--color-background);
+            border: 1px solid #ccc;
+        }
 
         .return-button-container {
             display: flex;
@@ -171,16 +182,40 @@
                     "avatar action";
                 gap: 5px 10px;
             }
-            .mission-header-row { display: none; }
-            .mission-user-info { grid-area: avatar; }
-            .mission-title { grid-area: title; }
-            .mission-date { grid-area: date; }
-            .mission-description { grid-area: description; }
-            .mission-status { grid-area: status; }
-            .mission-actions { grid-area: action; justify-self: start; }
+
+            .mission-header-row {
+                display: none;
+            }
+
+            .mission-user-info {
+                grid-area: avatar;
+            }
+
+            .mission-title {
+                grid-area: title;
+            }
+
+            .mission-date {
+                grid-area: date;
+            }
+
+            .mission-description {
+                grid-area: description;
+            }
+
+            .mission-status {
+                grid-area: status;
+            }
+
+            .mission-actions {
+                grid-area: action;
+                justify-self: start;
+            }
         }
     </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -289,4 +324,5 @@
     </footer>
 
 </body>
+
 </html>

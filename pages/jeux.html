@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,14 +72,46 @@
             border: 1px solid var(--color-white);
         }
 
-        .wheel-segment:nth-child(1) { background-color: #333; transform: rotate(0deg) skewY(30deg); }
-        .wheel-segment:nth-child(2) { background-color: #5c4033; transform: rotate(45deg) skewY(30deg); }
-        .wheel-segment:nth-child(3) { background-color: #a0846c; transform: rotate(90deg) skewY(30deg); }
-        .wheel-segment:nth-child(4) { background-color: #f5f0eb; color: #333; transform: rotate(135deg) skewY(30deg); }
-        .wheel-segment:nth-child(5) { background-color: #4CAF50; transform: rotate(180deg) skewY(30deg); }
-        .wheel-segment:nth-child(6) { background-color: #FFC107; transform: rotate(225deg) skewY(30deg); }
-        .wheel-segment:nth-child(7) { background-color: #F44336; transform: rotate(270deg) skewY(30deg); }
-        .wheel-segment:nth-child(8) { background-color: #9C27B0; transform: rotate(315deg) skewY(30deg); }
+        .wheel-segment:nth-child(1) {
+            background-color: #333;
+            transform: rotate(0deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(2) {
+            background-color: #5c4033;
+            transform: rotate(45deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(3) {
+            background-color: #a0846c;
+            transform: rotate(90deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(4) {
+            background-color: #f5f0eb;
+            color: #333;
+            transform: rotate(135deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(5) {
+            background-color: #4CAF50;
+            transform: rotate(180deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(6) {
+            background-color: #FFC107;
+            transform: rotate(225deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(7) {
+            background-color: #F44336;
+            transform: rotate(270deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(8) {
+            background-color: #9C27B0;
+            transform: rotate(315deg) skewY(30deg);
+        }
 
         .spin-button {
             background-color: var(--color-primary);
@@ -156,13 +189,17 @@
             .jeux-container {
                 flex-direction: column;
             }
-            .game-section, .info-section {
+
+            .game-section,
+            .info-section {
                 flex: none;
                 width: 100%;
             }
         }
     </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -189,18 +226,45 @@
             <div class="game-section">
                 <div class="game-card">
                     <div class="game-title">TENTEZ VOTRE CHANCE !</div>
-                    <p style="font-size: 12px; margin-bottom: 15px;">FAITES TOURNER LA ROUE ET GAGNEZ DES POINTS OU DES RÉCOMPENSES</p>
+                    <p style="font-size: 12px; margin-bottom: 15px;">FAITES TOURNER LA ROUE ET GAGNEZ DES POINTS OU DES
+                        RÉCOMPENSES</p>
                     <div class="wheel-placeholder">
                         <!-- Simplified Wheel Segments for visual representation -->
-                        <div class="wheel-segment" style="background-color: #333; transform: rotate(0deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(30deg);">Échouer</div></div>
-                        <div class="wheel-segment" style="background-color: #5c4033; transform: rotate(45deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(75deg);">3 dt</div></div>
-                        <div class="wheel-segment" style="background-color: #a0846c; transform: rotate(90deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(120deg);">Échouer</div></div>
-                        <div class="wheel-segment" style="background-color: #f5f0eb; color: #333; transform: rotate(135deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(165deg);">5 dt</div></div>
-                        <div class="wheel-segment" style="background-color: #4CAF50; transform: rotate(180deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(210deg);">Répéter</div></div>
-                        <div class="wheel-segment" style="background-color: #FFC107; transform: rotate(225deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(255deg);">10 dt</div></div>
-                        <div class="wheel-segment" style="background-color: #F44336; transform: rotate(270deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(300deg);">0.1 dt</div></div>
-                        <div class="wheel-segment" style="background-color: #9C27B0; transform: rotate(315deg) skewY(60deg);"><div style="transform: skewY(-60deg) rotate(345deg);">Échouer</div></div>
-                        <div style="position: absolute; width: 50px; height: 50px; background-color: var(--color-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: var(--color-primary);">SPIN</div>
+                        <div class="wheel-segment"
+                            style="background-color: #333; transform: rotate(0deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(30deg);">Échouer</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #5c4033; transform: rotate(45deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(75deg);">3 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #a0846c; transform: rotate(90deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(120deg);">Échouer</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #f5f0eb; color: #333; transform: rotate(135deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(165deg);">5 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #4CAF50; transform: rotate(180deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(210deg);">Répéter</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #FFC107; transform: rotate(225deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(255deg);">10 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #F44336; transform: rotate(270deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(300deg);">0.1 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #9C27B0; transform: rotate(315deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(345deg);">Échouer</div>
+                        </div>
+                        <div
+                            style="position: absolute; width: 50px; height: 50px; background-color: var(--color-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: var(--color-primary);">
+                            SPIN</div>
                     </div>
                 </div>
                 <button class="button spin-button">Spin</button>
@@ -221,7 +285,8 @@
                     <div class="color-dot" style="background-color: #333;"></div>
                     <div class="color-dot" style="background-color: var(--color-primary);"></div>
                     <div class="color-dot" style="background-color: var(--color-secondary);"></div>
-                    <div class="color-dot" style="background-color: var(--color-background); border: 1px solid #ccc;"></div>
+                    <div class="color-dot" style="background-color: var(--color-background); border: 1px solid #ccc;">
+                    </div>
                 </div>
             </div>
         </div>
@@ -229,7 +294,8 @@
         <div class="bottom-message">
             <i class="fas fa-gift"></i>
             <p>BESOIN DE PLUS DE SPINS ?</p>
-            <p style="font-weight: bold;">PARTICIPEZ À DES ÉVÉNEMENTS POUR GAGNER PLUS DE SPINS ET DÉBLOQUER DES RÉCOMPENSES EXCLUSIVES</p>
+            <p style="font-weight: bold;">PARTICIPEZ À DES ÉVÉNEMENTS POUR GAGNER PLUS DE SPINS ET DÉBLOQUER DES
+                RÉCOMPENSES EXCLUSIVES</p>
         </div>
     </main>
 
@@ -246,4 +312,5 @@
     </footer>
 
 </body>
+
 </html>

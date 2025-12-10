@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +28,8 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            background-color: var(--color-background); /* Light beige background for cards */
+            background-color: var(--color-background);
+            /* Light beige background for cards */
         }
 
         .summary-card-title {
@@ -117,9 +119,17 @@
         }
 
         /* Specific card colors/icons */
-        .card-solde .card-icon-top-right { color: var(--color-secondary); }
-        .card-attent .card-icon-top-right { color: var(--color-pending); }
-        .card-valider .card-icon-top-right { color: var(--color-success); }
+        .card-solde .card-icon-top-right {
+            color: var(--color-secondary);
+        }
+
+        .card-attent .card-icon-top-right {
+            color: var(--color-pending);
+        }
+
+        .card-valider .card-icon-top-right {
+            color: var(--color-success);
+        }
 
         @media (max-width: 768px) {
             .summary-cards {
@@ -127,7 +137,9 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
 </head>
+
 <body>
 
     <!-- Header -->
@@ -233,4 +245,5 @@
     </footer>
 
 </body>
+
 </html>
