@@ -1,0 +1,145 @@
+@use 'variables' as *;
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    flex-grow: 1;
+}
+
+/* Utility Classes for Icons (Assuming Font Awesome is used) */
+.icon {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+}
+
+.fa-search::before {
+    content: "\f002";
+}
+
+.fa-home::before {
+    content: "\f015";
+}
+
+.fa-list-alt::before {
+    content: "\f022";
+}
+
+.fa-tasks::before {
+    content: "\f0ae";
+}
+
+.fa-star::before {
+    content: "\f005";
+}
+
+.fa-gamepad::before {
+    content: "\f11b";
+}
+
+.fa-wallet::before {
+    content: "\f555";
+}
+
+.fa-envelope::before {
+    content: "\f0e0";
+}
+
+.fa-phone::before {
+    content: "\f095";
+}
+
+.fa-linkedin::before {
+    content: "\f08c";
+    font-family: "Font Awesome 5 Brands";
+}
+
+.fa-eye::before {
+    content: "\f06e";
+}
+
+.fa-times-circle::before {
+    content: "\f057";
+}
+
+.fa-check-circle::before {
+    content: "\f058";
+}
+
+.fa-redo-alt::before {
+    content: "\f2f9";
+}
+
+.fa-calendar-alt::before {
+    content: "\f073";
+}
+
+.fa-tag::before {
+    content: "\f02b";
+}
+
+.fa-info-circle::before {
+    content: "\f05a";
+}
+
+.fa-sort-down::before {
+    content: "\f0dd";
+}
+
+.fa-sort-up::before {
+    content: "\f0de";
+}
+
+.fa-check::before {
+    content: "\f00c";
+}
+
+.fa-credit-card::before {
+    content: "\f09d";
+}
+
+.fa-clock::before {
+    content: "\f017";
+}
+
+.fa-heart::before {
+    content: "\f004";
+}
+
+.fa-comment::before {
+    content: "\f075";
+}
+
+.fa-share::before {
+    content: "\f064";
+}
+
+.fa-paper-plane::before {
+    content: "\f1d8";
+}
+
+.fa-paperclip::before {
+    content: "\f0c6";
+}
+
+.fa-smile::before {
+    content: "\f118";
+}
+
+.fa-video::before {
+    content: "\f03d";
+}
+
+.fa-image::before {
+    content: "\f03e";
+}
+
+.fa-microphone::before {
+    content: "\f130";
+}

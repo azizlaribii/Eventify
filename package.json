@@ -1,0 +1,28 @@
+{
+  "name": "eventify-main",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "npm-run-all --parallel watch:sass watch:tailwind",
+    
+    "compile:sass": "sass src/scss/main.scss public/css/style.css",
+    "watch:sass": "sass --watch src/scss/main.scss public/css/style.css",
+
+    "build:tailwind": "npx tailwindcss -i ./src/input.css -o ./public/css/tailwind.css --minify",
+    "watch:tailwind": "npx tailwindcss -i ./src/input.css -o ./public/css/tailwind.css --watch",
+
+    "build": "npm run compile:sass && npm run build:tailwind && npm run copy:files",
+
+    "copy:files": "mkdir -p .vercel/output/static && cp -r public/* .vercel/output/static/"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "sass": "^1.95.0",
+    "tailwindcss": "^3.4.18",
+    "npm-run-all": "^4.1.5"
+  }
+}

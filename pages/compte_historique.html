@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Compte Historique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="../public/css/tailwind.css"
+    <style>
+        /* Styles Généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f8f8f8;
+        }
+        
+        /* Variables de couleur basées sur les images */
+        :root {
+            --color-navbar: #A68F6C;
+            --color-footer: #30261C;
+            --color-sidebar: #E8DCD3; /* Beige clair */
+            --color-background-main: #F5F0EB; /* Beige très clair */
+            --color-active-btn: #DFB18B; /* Brun clair/Orange */
+        }
+
+        /* 1. NAVBAR (Header) */
+        header {
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--color-navbar); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: white; 
+            letter-spacing: 1px;
+        }
+
+        header nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white; 
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .search-icon {
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        /* 2. CONTENU PRINCIPAL & DASHBOARD */
+        .page-wrapper {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: center;
+            background: var(--color-background-main);
+        }
+        
+        .dashboard-container {
+            display: flex;
+            width: 100%;
+            max-width: 1200px; /* Limiter la largeur totale du tableau de bord */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden; /* Important pour les bords arrondis */
+        }
+
+        /* SIDEBAR (Colonne de gauche) */
+        .dashboard-sidebar {
+            width: 300px;
+            background-color: var(--color-sidebar);
+            padding: 30px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .dash-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 3px solid white;
+        }
+
+        .dash-name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .dash-role {
+            font-size: 12px;
+            font-weight: 500;
+            color: #555;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        .dash-nav-btn {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 25px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .dash-btn-white {
+            background-color: white;
+            color: #333;
+        }
+
+        .dash-btn-active {
+            background-color: var(--color-active-btn); 
+            color: #333;
+        }
+
+        .dash-icons {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            margin-bottom: auto; /* Pousser le reste vers le bas */
+        }
+
+        .dash-icon-circle i {
+            font-size: 24px;
+            /* Utiliser les couleurs des icônes dans l'image */
+        }
+        .dash-icon-circle:first-child i { color: #FF9800; } /* Email icon orange */
+        .dash-icon-circle:last-child i { color: #FFB74D; } /* Video icon plus clair */
+
+        .logout-btn {
+            background-color: white;
+            padding: 10px 30px;
+            border-radius: 20px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* MAIN PANEL (Colonne de droite) */
+        .dashboard-main {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: white; /* Fond blanc du panneau principal */
+        }
+
+        .history-title-main {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .history-table-header {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr; /* 4 colonnes ajustées */
+            padding-bottom: 15px;
+            font-weight: 500;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .history-row {
+            display: grid;
+            grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+            align-items: center;
+            background-color: #F8F4EE; /* Couleur de fond des lignes dans l'image */
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .history-row > div:nth-child(1),
+        .history-row > div:nth-child(2) {
+            font-weight: bold; 
+        }
+
+        .status-text-green {
+            color: green;
+            font-weight: bold;
+        }
+
+        .status-text-red {
+            color: red;
+            font-weight: bold;
+        }
+
+        .action-icons-row {
+            display: flex;
+            gap: 15px;
+            font-size: 20px;
+        }
+
+        .action-icon {
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Pagination & Boutons */
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: #333; /* Noir/Marron foncé */
+        }
+        .dot.active:nth-child(2) {
+            background-color: #8d6e53; /* Marron intermédiaire */
+        }
+        .dot.light {
+            background-color: #d7ccc8; /* Beige clair */
+        }
+
+        .bottom-separator {
+            border-top: 1px solid #ccc;
+            margin: 0 auto 20px auto;
+            width: 80%;
+        }
+
+        .btn-center-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-arriche, .btn-retour {
+            background-color: white;
+            padding: 10px 30px;
+            border-radius: 25px;
+            border: 1px solid #ccc;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-size: 14px;
+        }
+
+        .btn-retour-container {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* 3. FOOTER (Réutilisé de l'image de référence) */
+        footer {
+            background: var(--color-footer); 
+            color: white;
+            padding: 25px 50px; 
+            margin-top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-logo {
+            font-size: 20px; 
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-right: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            font-size: 14px; 
+            font-weight: 400;
+        }
+
+        .contact-info i {
+            margin-right: 10px; 
+            font-size: 18px; 
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">EVENTIFY</div>
+        <nav>
+            <a href="#">ACCUEIL</a>
+            <a href="#">DEMANDE</a>
+            <a href="#">EVENT</a>
+            <a href="#">HISTORIQUE</a>
+        </nav>
+        <div class="search-icon"><i class="fas fa-search"></i></div>
+    </header>
+
+    <div class="page-wrapper">
+        <div class="dashboard-container">
+            
+            <div class="dashboard-sidebar">
+                <img src="https://i.pravatar.cc/150?img=5" class="dash-avatar" alt="Avatar Salma Ben Ali">
+                <div class="dash-name">SALMA BEN ALI</div>
+                <div class="dash-role">2ᵉ ANNÉE D'INGÉNIERIE</div>
+
+                <button class="dash-nav-btn dash-btn-white">Personnel Infromatique</button>
+                <button class="dash-nav-btn dash-btn-active">Historique de demande</button>
+                <button class="dash-nav-btn dash-btn-white">paramètres de compte</button>
+
+                <div class="dash-icons">
+                    <div class="dash-icon-circle"><i class="fas fa-envelope"></i></div>
+                    <div class="dash-icon-circle"><i class="fas fa-video"></i></div>
+                </div>
+
+                <button class="logout-btn">Déconnecter</button>
+            </div>
+
+            <div class="dashboard-main">
+                <h2 class="history-title-main">HISTORIQUE DE DEMANDE</h2>
+
+                <div class="history-table-header">
+                    <div>TITRE</div>
+                    <div>DATE</div>
+                    <div>STATUS</div>
+                    <div>ACTION</div>
+                </div>
+
+                <div class="history-row">
+                    <div>Demande 1</div>
+                    <div>14/11/2024</div>
+                    <div class="status-text-green">En cour</div>
+                    <div class="action-icons-row">
+                        <i class="far fa-eye action-icon"></i>
+                        <i class="far fa-times-circle action-icon"></i>
+                        <i class="far fa-edit action-icon"></i>
+                    </div>
+                </div>
+
+                <div class="history-row">
+                    <div>Demande 2</div>
+                    <div>10/11/2024</div>
+                    <div class="status-text-red">Terminer</div>
+                    <div class="action-icons-row">
+                        <i class="far fa-eye action-icon"></i>
+                        <i class="far fa-times-circle action-icon"></i>
+                        <i class="far fa-edit action-icon"></i>
+                    </div>
+                </div>
+
+                <div class="pagination-dots">
+                    <div class="dot active"></div>
+                    <div class="dot active"></div>
+                    <div class="dot light"></div>
+                </div>
+
+                <div class="bottom-separator"></div>
+
+                <div class="btn-center-container">
+                    <button class="btn-arriche">Arriche</button>
+                </div>
+
+                <div class="btn-retour-container">
+                    <button class="btn-retour">Retour</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-logo">EVENTIFY</div>
+        <div class="contact-info">
+            <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+            <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+            <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+        </div>
+    </footer>
+
+</body>
+</html>
