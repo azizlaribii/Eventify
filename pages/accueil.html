@@ -13,9 +13,9 @@
 <body>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header header-transparent">
         <div class="header-content">
-            <div class="logo">EVENTIFY</div>
+            <div class="logo"><a href="accueil.html" style="text-decoration: none; color: inherit;">EVENTIFY</a></div>
             <nav class="nav-links">
                 <a href="./demandes_disponibles.html">DEMANDES</a> <!-- Updated path -->
                 <a href="./chat.html">CHAT</a> <!-- Updated path -->
@@ -28,38 +28,105 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="container">
-            <h1>Bienvenue sur <span>EVENTIFY</span></h1>
-            <p>La plateforme d'entraide étudiante pour simplifier votre vie sur le campus. Trouvez de l'aide ou proposez
-                vos services en quelques clics.</p>
+        <div class="overlay"></div>
+        <div class="container hero-content">
+            <h1>Bienvenue 😎</h1>
+            <h2>Demande, aide, gagne tout<br>commence ici</h2>
+            <p>Envie d'aider ou besoin d'un coup de main ? Lance ton service !</p>
             <div class="cta-buttons">
-                <a href="./demandes_disponibles.html" class="button button-primary">Trouver de l'aide</a>
-                <!-- Updated -->
-                <a href="./profil.html" class="button button-secondary">Mon Profil</a> <!-- Updated -->
+                <a href="./demandes_disponibles.html" class="button button-white">Order now</a>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Services Bar -->
+    <section class="services-bar">
+        <div class="container services-grid">
+            <a href="./demandes_disponibles.html" class="service-item">
+                <i class="fas fa-clipboard-list"></i>
+                <span>CRÉE DEMMANDE</span>
+            </a>
+            <a href="#" class="service-item"> <!-- Check link later -->
+                <i class="fas fa-calendar-alt"></i>
+                <span>EVENEMNT</span>
+            </a>
+            <a href="#" class="service-item"> <!-- Check link later -->
+                <i class="fas fa-users"></i> <!-- or similar club icon -->
+                <span>CLUB</span>
+            </a>
+            <a href="./profil.html" class="service-item">
+                <i class="far fa-user"></i>
+                <span>PROFIL</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
         <div class="container">
-            <h2 class="section-title">Pourquoi utiliser Eventify ?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <i class="fas fa-hands-helping"></i>
-                    <h3>Entraide Facile</h3>
-                    <p>Connectez-vous avec d'autres étudiants pour échanger des services et des coups de main.</p>
+            <div class="section-header">
+                <h3>VIENS PARTAGER L'ESPRIT ÉTUDIANT !</h3>
+                <h2>NOS UTILISATEURS SATISFAITS</h2>
+            </div>
+
+            <div class="testimonials-grid">
+                <!-- Karim -->
+                <div class="testimonial-card">
+                    <div class="user-info">
+                        <img src="../public/images/profile_karim.png" alt="Karim Jaziri">
+                        <div>
+                            <h4>KARIM JAZIRI</h4>
+                            <span>3e ANNÉE DE DESIGN</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p>UNE VRAIE RÉVOLUTION POUR LA VIE ÉTUDIANTE : ÉCHANGES RAPIDES, AIDE ENTRE ÉTUDIANTS ET AGENDA DU
+                        CAMPUS TOUJOURS À JOUR !</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-rocket"></i>
-                    <h3>Rapide & Efficace</h3>
-                    <p>Trouvez une solution à vos besoins en temps réel grâce à notre communauté active.</p>
+
+                <!-- Ahmed -->
+                <div class="testimonial-card">
+                    <div class="user-info">
+                        <img src="../public/images/profile_ahmed.png" alt="Ahmed Kallel">
+                        <div>
+                            <h4>AHMED KALLEL</h4>
+                            <span>1e ANNÉE DE COMMERCE</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p>"CETTE APP A CHANGÉ MA VIE ÉTUDIANTE ! J'AI PU TROUVER QUELQU'UN POUR M'ACHETER UN CAFÉ ET J'AI
+                        MÊME GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS. ET JE NE RATE PLUS AUCUN ÉVÉNEMENT DU
+                        CAMPUS"</p>
                 </div>
-                <div class="feature-card">
-                    <i class="fas fa-shield-alt"></i>
-                    <h3>Confiance</h3>
-                    <p>Une communauté vérifiée d'étudiants de votre campus pour des échanges en toute sécurité.</p>
+
+                <!-- Sarah -->
+                <div class="testimonial-card">
+                    <div class="user-info">
+                        <img src="../public/images/profile_sarah.png" alt="Sarah Ben Ali">
+                        <div>
+                            <h4>SARAH BEN ALI</h4>
+                            <span>2e ANNÉE D'INGÉNIERIE</span>
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p>SUPER PRATIQUE ! J'AI GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS ET JE NE RATE PLUS
+                        AUCUNE ACTIVITÉ OU CLUB DU CAMPUS.</p>
                 </div>
+            </div>
+
+            <div class="carousel-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
             </div>
         </div>
     </section>

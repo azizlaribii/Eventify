@@ -5,6 +5,38 @@
     color: $color-white;
     padding: 15px 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    // Modifier for homepage transparent effect
+    &.header-transparent {
+        background-color: transparent;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 100;
+        padding: 20px 0;
+        box-shadow: none;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    }
+
+    // Modifier for Pill/Floating header (Demandes/Chat style)
+    &.header-pill {
+        width: 95%;
+        max-width: 1200px;
+        margin: 20px auto 0; // Float from top
+        border-radius: 50px;
+        padding: 15px 40px;
+        background-color: #8B5E3C; // Brown
+        position: relative; // Or sticky? Mock shows it just at top
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        .header-content {
+            width: 100%;
+            padding: 0;
+        }
+
+        // Search icon becomes specific in mockup (Magnifying glass right side)
+    }
 }
 
 .header-content {
@@ -14,6 +46,11 @@
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
 
 .logo {
@@ -26,6 +63,12 @@
 .nav-links {
     display: flex;
     gap: 30px;
+
+    @media (max-width: 768px) {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 
     a {
         color: $color-white;
@@ -44,4 +87,8 @@
 .search-icon {
     font-size: 20px;
     cursor: pointer;
+
+    @media (max-width: 768px) {
+        display: none; // Hide search icon on mobile to save space, or move it
+    }
 }

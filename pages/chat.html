@@ -7,403 +7,6 @@
     <title>EVENTIFY - Chat</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Chat Page Styles */
-        .chat-container {
-            display: flex;
-            background-color: var(--color-white);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            height: 700px;
-            margin-bottom: 30px;
-        }
-
-        .messages-sidebar {
-            width: 350px;
-            background-color: #e8ded4;
-            /* Light beige/brown for sidebar */
-            border-right: 1px solid #ddd;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chat-main {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            background-color: #f5f0eb;
-        }
-
-        .sidebar-header {
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .sidebar-title {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .new-message-badge {
-            background-color: var(--color-white);
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .chat-search-box {
-            margin: 0 20px 20px;
-            position: relative;
-        }
-
-        .chat-search-box input {
-            width: 100%;
-            padding: 10px 40px 10px 15px;
-            border-radius: 20px;
-            border: none;
-            background-color: rgba(255, 255, 255, 0.6);
-            outline: none;
-        }
-
-        .chat-search-box i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-        }
-
-        .conversation-list {
-            flex-grow: 1;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            padding: 0 10px;
-        }
-
-        .conversation-item {
-            display: flex;
-            align-items: center;
-            padding: 10px 15px;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            position: relative;
-        }
-
-        .conversation-item:hover,
-        .conversation-item.active {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .conversation-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-
-        .online-dot {
-            width: 12px;
-            height: 12px;
-            background-color: #4CAF50;
-            border-radius: 50%;
-            position: absolute;
-            bottom: 10px;
-            left: 50px;
-            border: 2px solid #e8ded4;
-        }
-
-        .conversation-info {
-            flex-grow: 1;
-        }
-
-        .conversation-name {
-            font-weight: bold;
-            font-size: 14px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .conversation-time {
-            font-size: 12px;
-            color: #777;
-            font-weight: normal;
-        }
-
-        .conversation-preview {
-            font-size: 12px;
-            color: #555;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            max-width: 180px;
-            margin-top: 5px;
-        }
-
-        .unread-badge {
-            background-color: #FF9800;
-            /* Orange */
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            right: 15px;
-            bottom: 10px;
-        }
-
-        /* Chat Main Area */
-        .chat-header {
-            padding: 15px 20px;
-            background-color: var(--color-background);
-            border-bottom: 1px solid #ddd;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-user-profile {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .chat-header-actions i {
-            font-size: 18px;
-            color: #333;
-            margin-left: 15px;
-            cursor: pointer;
-        }
-
-        .messages-display {
-            flex-grow: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .date-divider {
-            text-align: center;
-            font-size: 12px;
-            color: #999;
-            margin: 10px 0;
-            position: relative;
-        }
-
-        .date-divider::before,
-        .date-divider::after {
-            content: "";
-            position: absolute;
-            top: 50%;
-            width: 35%;
-            height: 1px;
-            background-color: #ddd;
-        }
-
-        .date-divider::before {
-            left: 0;
-        }
-
-        .date-divider::after {
-            right: 0;
-        }
-
-        .message-bubble {
-            max-width: 70%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .message-bubble.received {
-            align-self: flex-start;
-        }
-
-        .message-bubble.sent {
-            align-self: flex-end;
-            align-items: flex-end;
-        }
-
-        .message-header {
-            font-size: 12px;
-            margin-bottom: 5px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .message-avatar-small {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-        }
-
-        .message-content {
-            padding: 12px 15px;
-            border-radius: 15px;
-            font-size: 14px;
-            position: relative;
-        }
-
-        .message-bubble.received .message-content {
-            background-color: var(--color-primary);
-            color: white;
-            border-top-left-radius: 2px;
-        }
-
-        .message-bubble.sent .message-content {
-            background-color: #e0d0c0;
-            /* Light beige for sent */
-            color: black;
-            border-top-right-radius: 2px;
-        }
-
-        .message-emoji {
-            font-size: 16px;
-        }
-
-        .chat-input-area {
-            padding: 15px 20px;
-            background-color: #ede6dd;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .input-wrapper {
-            flex-grow: 1;
-            position: relative;
-        }
-
-        .chat-input {
-            width: 100%;
-            padding: 12px 40px 12px 15px;
-            border-radius: 25px;
-            border: none;
-            background-color: #ddd6cc;
-            outline: none;
-        }
-
-        .emoji-btn {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            cursor: pointer;
-            color: #555;
-            font-size: 20px;
-        }
-
-        .chat-action-btn {
-            font-size: 20px;
-            color: #333;
-            cursor: pointer;
-        }
-
-        .send-btn {
-            color: var(--color-primary);
-            font-size: 24px;
-        }
-
-        /* Right User Info Panel */
-        .user-info-panel {
-            width: 280px;
-            background-color: #e8ded4;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-left: 1px solid #ddd;
-        }
-
-        .about-section {
-            width: 100%;
-            margin-top: 30px;
-        }
-
-        .about-header {
-            display: flex;
-            align-items: center;
-            font-weight: bold;
-            margin-bottom: 15px;
-            font-size: 14px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-            font-size: 12px;
-        }
-
-        .info-label {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .files-grid {
-            margin-top: 20px;
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-
-        .file-thumbnail {
-            width: 100%;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 1200px) {
-            .user-info-panel {
-                display: none;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .chat-container {
-                height: calc(100vh - 140px);
-                margin-bottom: 0;
-            }
-
-            .messages-sidebar {
-                width: 80px;
-            }
-
-            .sidebar-title,
-            .search-text,
-            .conversation-name,
-            .conversation-preview,
-            .new-message-badge {
-                display: none;
-            }
-
-            .chat-search-box {
-                display: none;
-            }
-
-            .conversation-avatar {
-                margin-right: 0;
-            }
-
-            .online-dot {
-                left: 45px;
-            }
-        }
-    </style>
     <link rel="stylesheet" href="../public/tailwind.css">
 </head>
 
@@ -412,7 +15,7 @@
     <!-- Header -->
     <header class="header">
         <div class="header-content">
-            <div class="logo">EVENTIFY</div>
+            <div class="logo"><a href="accueil.html" style="text-decoration: none; color: inherit;">EVENTIFY</a></div>
             <nav class="nav-links">
                 <a href="demandes_disponibles.html">DEMANDES</a>
                 <a href="chat.html">CHAT</a>
@@ -424,19 +27,18 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="container">
-
-        <h1 class="section-title">Chat</h1>
+    <main class="chat-page">
+        <!-- <h1 class="page-title">Chat</h1> -->
 
         <div class="chat-container">
             <!-- Sidebar -->
             <div class="messages-sidebar">
                 <div class="sidebar-header">
                     <div class="sidebar-title">Messages</div>
-                    <div class="new-message-badge">2 new</div>
+                    <div class="new-badge">2 new</div>
                 </div>
 
-                <div class="chat-search-box">
+                <div class="search-container">
                     <input type="text" placeholder="SEARCH MESSAGE">
                     <i class="fas fa-search"></i>
                 </div>
@@ -444,37 +46,52 @@
                 <div class="conversation-list">
                     <!-- Conversation 1 -->
                     <div class="conversation-item active">
-                        <img src="https://i.pravatar.cc/150?img=11" class="conversation-avatar">
-                        <div class="online-dot"></div>
-                        <div class="conversation-info">
-                            <div class="conversation-name">
-                                AHMED KALLEL <span class="conversation-time">08:15</span>
+                        <div class="avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=11">
+                            <div class="status-dot"></div>
+                        </div>
+                        <div class="info">
+                            <div class="name-row">
+                                <span class="name">AHMED KALLEL</span>
+                                <span class="time">08:15</span>
                             </div>
-                            <div class="conversation-preview">Parfait, je la récupère maintenant.</div>
+                            <div class="preview-row">
+                                <span class="message-preview">Parfait, je la récupère maintenant...</span>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Conversation 2 -->
                     <div class="conversation-item">
-                        <img src="https://i.pravatar.cc/150?img=5" class="conversation-avatar">
-                        <div class="online-dot" style="background-color: #ddd;"></div>
-                        <div class="conversation-info">
-                            <div class="conversation-name">
-                                SARAH BEN ALI <span class="conversation-time">10:33</span>
-                            </div>
-                            <div class="conversation-preview">Parfait, j'arrive dans 5 min.</div>
+                        <div class="avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=5">
+                            <!-- No status dot or different color? Mock shows green dot for Sarah too? No, Sarah has orange badge -->
                         </div>
-                        <div class="unread-badge">2</div>
+                        <div class="info">
+                            <div class="name-row">
+                                <span class="name">SARAH BEN ALI</span>
+                                <span class="time">10:33</span>
+                            </div>
+                            <div class="preview-row">
+                                <span class="message-preview">Parfait, j'arrive dans 5 min.</span>
+                                <div class="unread-count">2</div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Conversation 3 -->
                     <div class="conversation-item">
-                        <img src="https://i.pravatar.cc/150?img=8" class="conversation-avatar">
-                        <div class="conversation-info">
-                            <div class="conversation-name">
-                                KARIM JAZIRI <span class="conversation-time">Hier</span>
+                        <div class="avatar-wrapper">
+                            <img src="https://i.pravatar.cc/150?img=8">
+                        </div>
+                        <div class="info">
+                            <div class="name-row">
+                                <span class="name">KARIM JAZIRI</span>
+                                <span class="time">Hier</span>
                             </div>
-                            <div class="conversation-preview">Merci pour ton aide !</div>
+                            <div class="preview-row">
+                                <span class="message-preview">Merci pour ton aide !</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -483,116 +100,145 @@
             <!-- Main Chat -->
             <div class="chat-main">
                 <div class="chat-header">
-                    <div class="chat-user-profile">
-                        <img src="https://i.pravatar.cc/150?img=11" class="message-avatar-small"
-                            style="width: 40px; height: 40px;">
-                        <span style="font-weight: bold;">AHMED KALLEL</span>
-                        <div style="width: 10px; height: 10px; background-color: #4CAF50; border-radius: 50%;"></div>
+                    <div class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=11">
+                        <span class="name">AHMED KALLEL</span>
+                        <div class="status-indicator"></div>
                     </div>
-                    <div class="chat-header-actions">
-                        <i class="fas fa-phone"></i>
+                    <div class="actions">
+                        <i class="fas fa-phone-alt"></i> <!-- Phone icon -->
                         <i class="fas fa-video"></i>
                         <i class="fas fa-info-circle"></i>
                     </div>
                 </div>
 
-                <div class="messages-display">
+                <div class="messages-area">
                     <div class="date-divider">AUJOURD'HUI, 14 NOVEMBRE</div>
 
-                    <div class="message-bubble received">
-                        <div class="message-header"> <span style="font-weight: bold;">AHMED KALLEL</span> 08:15</div>
-                        <div class="message-content">
-                            SALUT SALMA, J'AI VU TON POST. JE SUIS JUSTE À CÔTÉ DU CENTRE D'IMPRESSION, JE PEUX T'AIDER.
+                    <!-- Received Message -->
+                    <div class="message-group received">
+                        <div class="sender-info">
+                            AHMED KALLEL <span class="time">08:15</span>
+                        </div>
+                        <div class="wrapper">
+                            <!-- Avatar next to bubble -->
+                            <img src="https://i.pravatar.cc/150?img=11">
+                            <div class="bubble">
+                                SALUT SALMA, J'AI VU TON POST. JE SUIS JUSTE À CÔTÉ DU CENTRE D'IMPRESSION, JE PEUX
+                                T'AIDER.
+                            </div>
                         </div>
                     </div>
 
-                    <div class="message-bubble sent">
-                        <div class="message-header">08:18 <span style="font-weight: bold;">SALMA BEN ALI</span></div>
-                        <div class="message-content">
-                            OH SUPER AHMED ! MERCI 🙏<br>LE NOM SUR LA COMMANDE C'EST SALMA B.
+                    <!-- Sent Message -->
+                    <div class="message-group sent">
+                        <div class="sender-info">
+                            <span class="time">08:18</span> SALMA BEN ALI
                         </div>
-                        <img src="https://i.pravatar.cc/150?img=9" class="message-avatar-small"
-                            style="position: absolute; right: -40px; top: 0;">
-                    </div>
-
-                    <div class="message-bubble received">
-                        <div class="message-header"><span style="font-weight: bold;">AHMED KALLEL</span> 08:20</div>
-                        <div class="message-content">
-                            PARFAIT, JE LA RÉCUPÈRE MAINTENANT.
+                        <div class="wrapper">
+                            <div class="bubble">
+                                OH SUPER AHMED ! MERCI 🙏<br>LE NOM SUR LA COMMANDE C'EST SALMA B.
+                            </div>
+                            <img src="https://i.pravatar.cc/150?img=9">
                         </div>
                     </div>
 
-                    <div class="message-bubble sent">
-                        <div class="message-header">08:21 <span style="font-weight: bold;">SALMA BEN ALI</span></div>
-                        <div class="message-content">
-                            TU ME SAUVES, MERCI BEAUCOUP ! ☺️
+                    <!-- Received Message -->
+                    <div class="message-group received">
+                        <div class="sender-info">
+                            AHMED KALLEL <span class="time">08:20</span>
                         </div>
-                        <img src="https://i.pravatar.cc/150?img=9" class="message-avatar-small"
-                            style="position: absolute; right: -40px; top: 0;">
+                        <div class="wrapper">
+                            <img src="https://i.pravatar.cc/150?img=11">
+                            <div class="bubble">
+                                PARFAIT, JE LA RÉCUPÈRE MAINTENANT.
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="message-bubble received">
-                        <div class="message-header"><span style="font-weight: bold;">AHMED KALLEL</span> 08:23</div>
-                        <div class="message-content">
-                            AVEC PLAISIR ! J'ARRIVE DANS 3 MINUTES. ❤️
+                    <!-- Sent Message -->
+                    <div class="message-group sent">
+                        <div class="sender-info">
+                            <span class="time">08:21</span> SALMA BEN ALI
+                        </div>
+                        <div class="wrapper">
+                            <div class="bubble">
+                                TU ME SAUVES, MERCI BEAUCOUP ! ☺️
+                            </div>
+                            <img src="https://i.pravatar.cc/150?img=9">
+                        </div>
+                    </div>
+
+                    <!-- Received Message -->
+                    <div class="message-group received">
+                        <div class="sender-info">
+                            AHMED KALLEL <span class="time">08:23</span>
+                        </div>
+                        <div class="wrapper">
+                            <img src="https://i.pravatar.cc/150?img=11">
+                            <div class="bubble">
+                                AVEC PLAISIR ! J'ARRIVE DANS 3 MINUTES. ❤️
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="chat-input-area">
-                    <i class="fas fa-plus-circle chat-action-btn"></i>
-                    <i class="fas fa-camera chat-action-btn"></i>
-                    <i class="fas fa-microphone chat-action-btn"></i>
-                    <div class="input-wrapper">
-                        <input type="text" class="chat-input" placeholder="MESSAGE">
-                        <i class="far fa-smile emoji-btn"></i>
+                <div class="input-area">
+                    <div class="icons-left">
+                        <i class="fas fa-plus-circle"></i>
+                        <i class="fas fa-camera"></i>
+                        <i class="fas fa-microphone"></i>
                     </div>
-                    <i class="fas fa-paper-plane chat-action-btn send-btn"></i>
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="MESSAGE">
+                        <i class="far fa-smile emoji-icon"></i>
+                    </div>
+                    <i class="fas fa-paper-plane send-btn"></i>
                 </div>
             </div>
 
             <!-- Right Panel (User Info) -->
             <div class="user-info-panel">
-                <img src="https://i.pravatar.cc/150?img=11"
-                    style="width: 100px; height: 100px; border-radius: 50%; margin-bottom: 10px;">
-                <div style="font-weight: bold; font-size: 18px;">AHMED KALLEL</div>
-                <div style="margin-top: 10px; display: flex; gap: 20px;">
-                    <i class="fas fa-video" style="font-size: 24px; cursor: pointer;"></i>
-                    <i class="far fa-envelope" style="font-size: 24px; cursor: pointer;"></i>
-                </div>
-
-                <div class="about-section">
-                    <div class="about-header"><i class="fas fa-caret-down"></i> ABOUT</div>
-                    <div class="info-row">
-                        <span class="info-label">TELEPHONE</span>
-                        <span>25 555 666</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">EMAIL</span>
-                        <span>kalel.ahmed@gmail.com</span>
+                <div class="profile-summary">
+                    <img src="https://i.pravatar.cc/150?img=11">
+                    <div class="name">AHMED KALLEL</div>
+                    <div class="action-buttons">
+                        <i class="fas fa-video"></i>
+                        <i class="far fa-envelope"></i>
                     </div>
                 </div>
 
-                <div class="about-section">
-                    <div class="about-header" style="justify-content: space-between;">
+                <div class="section">
+                    <div class="section-header"><i class="fas fa-caret-down"></i> ABOUT</div>
+                    <div class="info-row">
+                        <span class="label">TELEPHONE</span>
+                        <span class="value">25 555 666</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">EMAIL</span>
+                        <span class="value">kalel.ahmed@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section-header" style="justify-content: space-between;">
                         <span><i class="fas fa-folder"></i> FILES</span>
-                        <span style="font-size: 10px; cursor: pointer;">SEE ALL</span>
+                        <span style="font-size: 0.7rem; cursor: pointer;">SEE ALL</span>
                     </div>
                     <div class="files-grid">
-                        <img src="https://picsum.photos/200/200?random=1" class="file-thumbnail">
-                        <img src="https://picsum.photos/200/200?random=2" class="file-thumbnail">
+                        <img src="https://picsum.photos/200/200?random=1">
+                        <img src="https://picsum.photos/200/200?random=2">
                     </div>
                 </div>
 
-                <div class="about-section">
-                    <div class="info-row" style="margin-top: 20px;">
-                        <span class="info-label"><i class="fas fa-bell"></i> NOTIFICATION</span>
-                        <i class="fas fa-toggle-on" style="font-size: 20px;"></i>
+                <div class="settings-switches">
+                    <div class="switch-row">
+                        <span class="label"><i class="fas fa-bell"></i> NOTIFICATION</span>
+                        <i class="fas fa-toggle-on toggle"></i>
                     </div>
-                    <div class="info-row" style="margin-top: 10px;">
-                        <span class="info-label"><i class="far fa-star"></i> ETOILE</span>
-                        <span
-                            style="background-color: #FFA500; color: white; border-radius: 50%; width: 20px; height: 20px; display: flex; align-items: center; justify-content: center; font-size: 10px;">12</span>
+                    <div class="switch-row">
+                        <span class="label"><i class="far fa-star"></i> ETOILE</span>
+                        <span class="badge">12</span>
                     </div>
                 </div>
             </div>

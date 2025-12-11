@@ -1,0 +1,191 @@
+// _demandes.scss
+
+.demandes-page {
+    padding-top: 50px;
+    padding-bottom: 0; // Bottom is handled by CTA section
+
+    .page-title {
+        font-size: 1.5rem;
+        font-weight: 800;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    .search-container {
+        margin-bottom: 40px;
+        position: relative;
+        max-width: 300px;
+
+        input {
+            width: 100%;
+            padding: 10px 40px 10px 20px;
+            border-radius: 25px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+        }
+    }
+
+    .demandes-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+        justify-content: center; // Center cards if fewer than row
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .demande-card {
+        background-color: #E6DFD5; // Beige
+        border-radius: 20px;
+        padding: 25px;
+        width: 300px;
+        flex-shrink: 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 200px;
+
+        .card-header {
+            margin-bottom: 15px;
+
+            h3 {
+                font-size: 0.9rem;
+                font-weight: 800;
+                margin-bottom: 5px;
+                text-transform: uppercase;
+                color: #000;
+            }
+
+            .date {
+                font-size: 0.8rem;
+                color: #666;
+            }
+        }
+
+        .card-body {
+            margin-bottom: 20px;
+
+            .task {
+                font-weight: 600;
+                margin-bottom: 5px;
+                font-size: 0.95rem;
+            }
+
+            .reward {
+                font-size: 0.9rem;
+                font-weight: 700;
+            }
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            .status-badge {
+                padding: 5px 15px;
+                border-radius: 15px;
+                font-size: 0.75rem;
+                font-weight: bold;
+                color: white;
+                text-transform: capitalize;
+
+                &.status-encours {
+                    background-color: #4CAF50; // Green
+                }
+
+                &.status-terminer {
+                    background-color: #D32F2F; // Red
+                }
+
+                &.status-enattente {
+                    background-color: #FF9800; // Orange
+                }
+            }
+
+            .btn-accepter {
+                background-color: white;
+                color: #333;
+                border: none;
+                padding: 8px 20px;
+                border-radius: 20px;
+                font-weight: bold;
+                font-size: 0.9rem;
+                cursor: pointer;
+                transition: transform 0.2s;
+                text-decoration: none;
+
+                &:hover {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    .dots-container {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 50px;
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #D1C7BB;
+            border-radius: 50%;
+            cursor: pointer;
+
+            &.active {
+                background-color: #3E3228;
+            }
+        }
+    }
+}
+
+.cta-create-section {
+    background-color: #E6DFD5; // Beige
+    padding: 60px 20px;
+    text-align: center;
+    width: 100%;
+
+    h2 {
+        font-family: 'Brush Script MT', 'Bradley Hand', 'Comic Sans MS', cursive; // Hand-written feel
+        font-size: 1.5rem;
+        margin-bottom: 25px;
+        color: #333;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .btn-create {
+        background-color: white;
+        color: #333;
+        padding: 12px 35px;
+        border-radius: 30px;
+        font-weight: bold;
+        text-decoration: none;
+        display: inline-block;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        font-size: 0.95rem;
+
+        &:hover {
+            transform: translateY(-2px);
+        }
+    }
+}
