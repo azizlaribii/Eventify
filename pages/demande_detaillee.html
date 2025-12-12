@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTIFY - Demande Détaillée</title>
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="../public/css/tailwind.css">
     <style>
@@ -217,107 +216,18 @@
             font-size: 20px; 
         }
     </style>
-=======
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Page-specific styles for Demande Détaillée */
-        .detail-container {
-            display: flex;
-            gap: 30px;
-            padding: 30px;
-            background-color: var(--color-white);
-            border-radius: 15px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .image-panel {
-            flex: 1;
-            background-color: var(--color-background);
-            border-radius: 10px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-panel img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .detail-panel {
-            flex: 2;
-        }
-
-        .detail-panel h1 {
-            font-size: 24px;
-            font-weight: bold;
-            color: var(--color-primary);
-            margin-bottom: 25px;
-        }
-
-        .detail-row {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .detail-label {
-            font-weight: bold;
-            color: var(--color-primary);
-            width: 120px;
-            flex-shrink: 0;
-            padding-top: 10px;
-        }
-
-        .detail-value-box {
-            flex-grow: 1;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            background-color: #f9f9f9;
-            min-height: 40px;
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: flex-end;
-            gap: 15px;
-            margin-top: 30px;
-        }
-
-        @media (max-width: 992px) {
-            .detail-container {
-                flex-direction: column;
-            }
-
-            .image-panel {
-                min-height: 300px;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="../public/tailwind.css">
->>>>>>> 9897c0cc806ec47522ebfee6a2f0142658940dd4
 </head>
 
 <body>
 
-<<<<<<< HEAD
 <header>
     <div class="logo">EVENTIFY</div>
 
     <nav>
-        <a href="#">ACCUEIL</a>
+        <a href="accueil.html">ACCUEIL</a>
         <a href="#">DEMANDE</a>
         <a href="#">EVENT</a>
-        <a href="#">HISTORIQUE</a>
+        <a href="compte_historique.html">HISTORIQUE</a>
     </nav>
 
     <div class="nav-icons">
@@ -402,84 +312,4 @@
 </footer>
 
 </body>
-=======
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">EVENTIFY</div>
-            <nav class="nav-links">
-                <a href="../index.html">HOME</a>
-                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
-                <a href="mes_missions.html">MES DEMANDES</a>
-                <a href="evaluation.html">EVALUATION</a>
-                <a href="jeux.html">JEUX</a>
-                <a href="portefeuille.html">PORTEFEUILLE</a>
-            </nav>
-            <div class="search-icon"><i class="fas fa-search"></i></div>
-        </div>
-    </header>
-
-    <!-- Main Content Area -->
-    <main class="container">
-        <div class="detail-container">
-            <div class="image-panel">
-                <!-- Placeholder for the MyUniLife graphic -->
-                <img src="https://picsum.photos/300/400?random=1" alt="MyUniLife Graphic">
-            </div>
-            <div class="detail-panel">
-                <h1>DEMANDE DETAILLÉ</h1>
-
-                <div class="detail-row">
-                    <div class="detail-label">TITRE :</div>
-                    <div class="detail-value-box">Demande : Salma ben ali</div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">DESCRIPTION :</div>
-                    <div class="detail-value-box">Je suis en salle G406, quelqu'un peut m'acheter un café?</div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">RÉCOMPENSE :</div>
-                    <div class="detail-value-box">3 dt</div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">ADRESSE :</div>
-                    <div class="detail-value-box">Bloc G Salle G406</div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">CONTACT :</div>
-                    <div class="detail-value-box">99554778</div>
-                </div>
-
-                <div class="detail-row">
-                    <div class="detail-label">DURÉE :</div>
-                    <div class="detail-value-box">20 minute</div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="button button-secondary">Retour</button>
-                    <button class="button button-primary">Accepter</button>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">EVENTIFY</div>
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
-                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
-                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
-            </div>
-        </div>
-    </footer>
-
-</body>
-
->>>>>>> 9897c0cc806ec47522ebfee6a2f0142658940dd4
 </html>
