@@ -7,6 +7,7 @@
     <title>EVENTIFY - Accueil</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="../public/css/tailwind.css">
     <link rel="stylesheet" href="../dist/output.css">
 
@@ -272,10 +273,248 @@ footer h2 {
         /* Retiré .footer-line p car le texte n'est plus dans un paragraphe */
 
     </style>
+=======
+    <style>
+        /* Feed Page Styles */
+        .feed-container {
+            display: flex;
+            gap: 30px;
+        }
+
+        .feed-main {
+            flex: 2;
+        }
+
+        .feed-sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .create-post-card {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .post-input-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .post-input {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 25px;
+            border: 1px solid #ddd;
+            background-color: #f5f5f5;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .post-input:focus {
+            background-color: #fff;
+            border-color: var(--color-secondary);
+        }
+
+        .post-actions {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .post-card {
+            background-color: var(--color-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .post-header {
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .post-author {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .post-time {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .post-content {
+            padding: 15px;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.5;
+        }
+
+        .post-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-footer {
+            padding: 10px 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .post-action-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #666;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: color 0.3s;
+        }
+
+        .post-action-btn:hover {
+            color: var(--color-primary);
+        }
+
+        .hero-banner {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://picsum.photos/1200/400?random=10');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .category-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .category-tag {
+            padding: 5px 15px;
+            background-color: var(--color-white);
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .category-tag.active {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-color: var(--color-primary);
+        }
+
+        /* Sidebar Elements */
+        .sidebar-card {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .sidebar-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: var(--color-primary);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .suggestion-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .suggestion-info {
+            flex-grow: 1;
+            font-size: 13px;
+        }
+
+        .suggestion-name {
+            font-weight: bold;
+            display: block;
+        }
+
+        .suggestion-desc {
+            color: #777;
+            font-size: 11px;
+        }
+
+        .suggestion-btn {
+            padding: 5px 10px;
+            font-size: 11px;
+            border: 1px solid var(--color-primary);
+            background: none;
+            border-radius: 15px;
+            cursor: pointer;
+            color: var(--color-primary);
+        }
+
+        .suggestion-btn:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        @media (max-width: 768px) {
+            .feed-container {
+                flex-direction: column;
+            }
+
+            .feed-sidebar {
+                display: none;
+                /* Hide sidebar on mobile for simplicity */
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
+>>>>>>> 9897c0cc806ec47522ebfee6a2f0142658940dd4
 </head>
 
 <body>
 
+<<<<<<< HEAD
 <header>
     <div class="logo">EVENTIFY</div>
 
@@ -410,4 +649,161 @@ footer h2 {
 </footer>
 
 </body>
+=======
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES MISSIONS</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <div class="hero-banner">
+            <div class="hero-content">
+                <h1>Bienvenue 👋</h1>
+                <p>Demande, aide, gagne tout commence ici !</p>
+                <a href="creer_demande.html" class="button button-white"
+                    style="background-color: white; color: var(--color-primary); text-decoration: none;">Order now</a>
+            </div>
+        </div>
+
+        <div class="category-tags">
+            <div class="category-tag active">Tous</div>
+            <div class="category-tag">Urgent</div>
+            <div class="category-tag">Aide aux devoirs</div>
+            <div class="category-tag">Transport</div>
+            <div class="category-tag">Cafétéria</div>
+            <div class="category-tag">Objets perdus</div>
+        </div>
+
+        <div class="feed-container">
+            <div class="feed-main">
+                <!-- Create Post -->
+                <div class="create-post-card">
+                    <div class="post-input-container">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="My Avatar" class="user-avatar"
+                            style="width: 40px; height: 40px;">
+                        <input type="text" class="post-input"
+                            placeholder="Partage ton expérience ou pose une question ...">
+                    </div>
+                    <div class="post-actions">
+                        <button class="button button-primary">Publier</button>
+                    </div>
+                </div>
+
+                <!-- Post 1 -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="https://i.pravatar.cc/150?img=8" alt="User" class="user-avatar">
+                            <div>
+                                <div>PRENOM NOM (AHMED KALLEL)</div>
+                                <div class="post-time">Il y a 2 heures</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h" style="color: #999; cursor: pointer;"></i>
+                    </div>
+                    <div class="post-content">
+                        Salut tout le monde ! Quelqu'un aurait un chargeur de Mac à prêter pour 1h en salle G203 ? C'est
+                        urgent pour mon projet ! Merci d'avance 🙏
+                    </div>
+                    <div class="post-footer">
+                        <button class="post-action-btn"><i class="far fa-heart"></i> J'aime</button>
+                        <button class="post-action-btn"><i class="far fa-comment"></i> Commenter</button>
+                        <button class="post-action-btn"><i class="fas fa-share"></i> Partager</button>
+                        <button class="post-action-btn"><i class="fas fa-exclamation-triangle"></i> Signaler</button>
+                    </div>
+                </div>
+
+                <!-- Post 2 with Image -->
+                <div class="post-card">
+                    <div class="post-header">
+                        <div class="post-author">
+                            <img src="https://i.pravatar.cc/150?img=9" alt="User" class="user-avatar">
+                            <div>
+                                <div>PRENOM NOM (SARAH BEN ALI)</div>
+                                <div class="post-time">Il y a 5 heures</div>
+                            </div>
+                        </div>
+                        <i class="fas fa-ellipsis-h" style="color: #999; cursor: pointer;"></i>
+                    </div>
+                    <div class="post-content">
+                        J'ai trouvé cette carte d'étudiant près de la bibliothèque. Contactez-moi si c'est la vôtre !
+                    </div>
+                    <img src="https://picsum.photos/800/400?random=15" alt="Post Image" class="post-image">
+                    <div class="post-footer">
+                        <button class="post-action-btn"><i class="far fa-heart"></i> J'aime</button>
+                        <button class="post-action-btn"><i class="far fa-comment"></i> Commenter</button>
+                        <button class="post-action-btn"><i class="fas fa-share"></i> Partager</button>
+                        <button class="post-action-btn"><i class="fas fa-exclamation-triangle"></i> Signaler</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="feed-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-title">COMMUNAUTÉ</div>
+                    <div class="suggestion-item">
+                        <img src="https://i.pravatar.cc/150?img=1" class="user-avatar"
+                            style="width: 35px; height: 35px; margin-right: 10px;">
+                        <div class="suggestion-info">
+                            <span class="suggestion-name">Club Robotique</span>
+                            <span class="suggestion-desc">250 membres</span>
+                        </div>
+                        <button class="suggestion-btn">Rejoindre</button>
+                    </div>
+                    <div class="suggestion-item">
+                        <img src="https://i.pravatar.cc/150?img=2" class="user-avatar"
+                            style="width: 35px; height: 35px; margin-right: 10px;">
+                        <div class="suggestion-info">
+                            <span class="suggestion-name">Esprit Entraide</span>
+                            <span class="suggestion-desc">1.2k membres</span>
+                        </div>
+                        <button class="suggestion-btn">Rejoindre</button>
+                    </div>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-title">ACTIVITÉ RÉCENTE</div>
+                    <div style="font-size: 13px; color: #555;">
+                        <p style="margin-bottom: 10px;"><i class="fas fa-check-circle"
+                                style="color: var(--color-success);"></i> <strong>Karim</strong> a validé une mission.
+                        </p>
+                        <p style="margin-bottom: 10px;"><i class="fas fa-user-plus"
+                                style="color: var(--color-primary);"></i> <strong>Salma</strong> a rejoint le club.</p>
+                        <p><i class="fas fa-star" style="color: gold;"></i> <strong>Ahmed</strong> a reçu un avis 5
+                            étoiles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+>>>>>>> 9897c0cc806ec47522ebfee6a2f0142658940dd4
 </html>

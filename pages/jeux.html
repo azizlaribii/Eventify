@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Jeux</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Page-specific styles for Jeux */
+        .jeux-container {
+            display: flex;
+            gap: 40px;
+            padding: 30px 0;
+        }
+
+        .game-section {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .game-card {
+            background-color: var(--color-background);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .game-title {
+            font-weight: bold;
+            color: var(--color-primary);
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            border-radius: 5px;
+        }
+
+        .wheel-placeholder {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            border: 5px solid var(--color-primary);
+            margin: 20px auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .wheel-segment {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            clip-path: polygon(50% 50%, 100% 0, 100% 100%);
+            transform-origin: 0% 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--color-white);
+            font-size: 12px;
+            border: 1px solid var(--color-white);
+        }
+
+        .wheel-segment:nth-child(1) {
+            background-color: #333;
+            transform: rotate(0deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(2) {
+            background-color: #5c4033;
+            transform: rotate(45deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(3) {
+            background-color: #a0846c;
+            transform: rotate(90deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(4) {
+            background-color: #f5f0eb;
+            color: #333;
+            transform: rotate(135deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(5) {
+            background-color: #4CAF50;
+            transform: rotate(180deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(6) {
+            background-color: #FFC107;
+            transform: rotate(225deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(7) {
+            background-color: #F44336;
+            transform: rotate(270deg) skewY(30deg);
+        }
+
+        .wheel-segment:nth-child(8) {
+            background-color: #9C27B0;
+            transform: rotate(315deg) skewY(30deg);
+        }
+
+        .spin-button {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 10px 40px;
+            border-radius: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .info-section {
+            flex: 1;
+        }
+
+        .spin-remaining {
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .history-card {
+            background-color: var(--color-background);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .history-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .history-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 5px 0;
+            border-bottom: 1px dotted #ccc;
+        }
+
+        .total-gain {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .color-dots {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .color-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #333;
+        }
+
+        .bottom-message {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: var(--color-secondary);
+            color: var(--color-white);
+            border-radius: 10px;
+        }
+
+        .bottom-message i {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .jeux-container {
+                flex-direction: column;
+            }
+
+            .game-section,
+            .info-section {
+                flex: none;
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="../index.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES DEMANDES</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <h1 class="section-title">JEUX</h1>
+
+        <div class="jeux-container">
+            <div class="game-section">
+                <div class="game-card">
+                    <div class="game-title">TENTEZ VOTRE CHANCE !</div>
+                    <p style="font-size: 12px; margin-bottom: 15px;">FAITES TOURNER LA ROUE ET GAGNEZ DES POINTS OU DES
+                        RÉCOMPENSES</p>
+                    <div class="wheel-placeholder">
+                        <!-- Simplified Wheel Segments for visual representation -->
+                        <div class="wheel-segment"
+                            style="background-color: #333; transform: rotate(0deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(30deg);">Échouer</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #5c4033; transform: rotate(45deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(75deg);">3 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #a0846c; transform: rotate(90deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(120deg);">Échouer</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #f5f0eb; color: #333; transform: rotate(135deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(165deg);">5 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #4CAF50; transform: rotate(180deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(210deg);">Répéter</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #FFC107; transform: rotate(225deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(255deg);">10 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #F44336; transform: rotate(270deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(300deg);">0.1 dt</div>
+                        </div>
+                        <div class="wheel-segment"
+                            style="background-color: #9C27B0; transform: rotate(315deg) skewY(60deg);">
+                            <div style="transform: skewY(-60deg) rotate(345deg);">Échouer</div>
+                        </div>
+                        <div
+                            style="position: absolute; width: 50px; height: 50px; background-color: var(--color-white); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: bold; color: var(--color-primary);">
+                            SPIN</div>
+                    </div>
+                </div>
+                <button class="button spin-button">Spin</button>
+            </div>
+
+            <div class="info-section">
+                <div class="spin-remaining">Spin restant : 2</div>
+                <div class="history-card">
+                    <div class="history-title">HISTORIQUE DE GAGNE</div>
+                    <div class="history-list">
+                        <div class="history-item"><span>22/10/2025</span><span>5dt</span></div>
+                        <div class="history-item"><span>10/11/2025</span><span>3dt</span></div>
+                        <div class="history-item"><span>03/11/2025</span><span>Échouer</span></div>
+                    </div>
+                    <div class="total-gain">Total de gagne: 8dt</div>
+                </div>
+                <div class="color-dots">
+                    <div class="color-dot" style="background-color: #333;"></div>
+                    <div class="color-dot" style="background-color: var(--color-primary);"></div>
+                    <div class="color-dot" style="background-color: var(--color-secondary);"></div>
+                    <div class="color-dot" style="background-color: var(--color-background); border: 1px solid #ccc;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bottom-message">
+            <i class="fas fa-gift"></i>
+            <p>BESOIN DE PLUS DE SPINS ?</p>
+            <p style="font-weight: bold;">PARTICIPEZ À DES ÉVÉNEMENTS POUR GAGNER PLUS DE SPINS ET DÉBLOQUER DES
+                RÉCOMPENSES EXCLUSIVES</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
