@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Créer une Demande</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="../public/css/tailwind.css">
+    <style>
+        /* Styles Généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        body {
+            background: #f8f8f8; /* Arrière-plan gris clair du corps de la page */
+        }
+
+        /* 1. NAVBAR (Header) */
+        header {
+            width: 100%;
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* Couleur marron/beige de la navbar de l'image */
+            background: #8B643C; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        header .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: white; 
+            letter-spacing: 1px;
+        }
+
+        header nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            font-weight: 500;
+            color: white; 
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .nav-icons i {
+            margin-left: 20px;
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* 2. CONTENU PRINCIPAL - CRÉE UNE DEMANDE */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            padding: 50px 100px;
+            gap: 50px;
+            /* La zone principale a une bordure courbée sur la partie supérieure des images */
+            margin: 20px 50px; 
+            background: white;
+            border-radius: 15px; 
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Illustration latérale */
+        .side-illustration {
+            width: 400px; 
+            /* Couleur de fond de l'illustration (Beige très clair) */
+            background: #F4E9D7; 
+            border-radius: 15px;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .side-illustration img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        /* Conteneur principal du formulaire de demande */
+        .demand-form-container {
+            flex-grow: 1;
+            max-width: 650px;
+        }
+
+        .demand-form-container h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            color: #8B643C;
+        }
+
+        .detail-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .detail-group label {
+            width: 150px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333;
+            padding-top: 10px; 
+        }
+        
+        .input-field {
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .input-field input, .input-field textarea {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            /* Couleur de fond des champs de l'image (Beige très clair) */
+            background: #F4F0E8; 
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+        
+        .input-field textarea {
+            resize: none;
+            height: 100px;
+        }
+        
+        .input-field input:focus, .input-field textarea:focus {
+            border-color: #A68F6C;
+            outline: none;
+            box-shadow: 0 0 5px rgba(166, 143, 108, 0.5);
+        }
+        
+        /* Style pour l'icône calendrier */
+        .input-field i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #A68F6C;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        
+        .input-field input.has-icon {
+            padding-right: 40px; 
+        }
+
+        /* Boutons d'action */
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end; 
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        .action-buttons button {
+            padding: 10px 25px;
+            border: none;
+            border-radius: 20px; /* Bordures arrondies comme dans l'image */
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+        }
+        
+        .action-buttons .share-btn {
+            background: white;
+            color: #30261C;
+            border: 0px solid #30261C;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .action-buttons .cancel-btn {
+            background: white;
+            color: #30261C;
+            border: 0px solid #30261C;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+
+        /* 3. FOOTER (Identique à l'accueil) */
+     footer {
+            background: #8B643C; /* Couleur marron très foncé */
+            color: white;
+            padding: 40px 100px; 
+            margin-top: 60px;
+            display: block; 
+            text-align: left; 
+        }
+        
+        footer h2 {
+            font-size: 32px; 
+            font-weight: 700;
+            margin-bottom: 25px; 
+            letter-spacing: 1.5px;
+        }
+
+        .footer-contacts {
+            width: 100%;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            display: flex;
+            justify-content: center; 
+            gap: 80px; 
+            align-items: center;
+            padding: 0; 
+        }
+
+        .footer-line {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 16px; 
+            font-weight: 500;
+        }
+
+        .footer-line i {
+            margin-right: 15px; 
+            font-size: 20px; 
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">EVENTIFY</div>
+
+    <nav>
+        <a href="#">ACCUEIL</a>
+        <a href="#">DEMANDE</a>
+        <a href="#">EVENT</a>
+        <a href="#">HISTORIQUE</a>
+        </nav>
+
+    <div class="nav-icons">
+        <i class="fas fa-search"></i> 
+    </div>
+</header>
+
+<section class="main-content">
+    
+    <div class="side-illustration">
+        <img src="../Image/demande.png" alt="MyUniLife Connect. Help. Live."> 
+    </div>
+
+    <div class="demand-form-container">
+        <h1>CRÉE UNE DEMANDE</h1>
+
+        <form class="details-form">
+            
+            <div class="detail-group">
+                <label for="titre">TITRE :</label>
+                <div class="input-field">
+                    <input type="text" id="titre" value="">
+                </div>
+            </div>
+
+            <div class="detail-group">
+                <label for="description">DÉSCRIPTION :</label>
+                <div class="input-field">
+                    <textarea id="description"></textarea>
+                </div>
+            </div>
+
+            <div class="detail-group">
+                <label for="recompense">RÉCOMPENSE :</label>
+                <div class="input-field">
+                    <input type="text" id="recompense" value="">
+                </div>
+            </div>
+
+            <div class="detail-group">
+                <label for="adresse">ADRESSE :</label>
+                <div class="input-field">
+                    <input type="text" id="adresse" value="">
+                </div>
+            </div>
+
+            <div class="detail-group">
+                <label for="date">DATE :</label>
+                <div class="input-field">
+                    <input type="text" id="date" placeholder="jj/mm/aaaa hh:mm" class="has-icon">
+                    <i class="fas fa-calendar-alt"></i> 
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="submit" class="share-btn">Partager</button>
+                <button type="button" class="cancel-btn">Annuler</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+
+<footer>
+    <h2>EVENTIFY</h2>
+    
+    <div class="footer-contacts">
+        <div class="footer-line">
+            <i class="fas fa-envelope"></i>
+            Email: help@eventify.tn
+        </div>
+    
+        <div class="footer-line">
+            <i class="fas fa-phone-alt"></i>
+            Contact: 92 225 335
+        </div>
+    
+        <div class="footer-line">
+            <i class="fab fa-linkedin-in"></i>
+            Linkedin: eventify.tn
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

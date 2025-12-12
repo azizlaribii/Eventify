@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Communauté</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .community-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .community-tabs-bar {
+            background-color: #eeddcc;
+            /* Light beige/peach bar */
+            border-radius: 25px;
+            padding: 5px;
+            display: flex;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .community-tab {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            cursor: pointer;
+            z-index: 1;
+            text-transform: uppercase;
+        }
+
+        .community-search-icon {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 18px;
+        }
+
+        .post-creation-area {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .post-input-box {
+            width: 100%;
+            padding: 20px 40px 20px 20px;
+            background-color: #e8ded4;
+            /* Light grayish/purple tint from image */
+            border: 1px solid #ccc;
+            /* Or borderless? Image has border */
+            border-radius: 5px;
+            min-height: 80px;
+            outline: none;
+            resize: vertical;
+            font-family: inherit;
+        }
+
+        .post-close-icon {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            cursor: pointer;
+            color: #555;
+        }
+
+        .btn-publier {
+            background-color: white;
+            color: #000;
+            padding: 8px 30px;
+            border-radius: 20px;
+            border: none;
+            font-weight: bold;
+            float: right;
+            margin-top: 10px;
+            margin-bottom: 30px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .community-post {
+            background-color: #e8ded4;
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border: 1px solid #777;
+            /* Thin dark border as seen in screenshot */
+            position: relative;
+        }
+
+        .post-header {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .post-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .post-user-name {
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        .post-content {
+            font-size: 16px;
+            margin-left: 65px;
+            /* Align with text start */
+        }
+
+        .post-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .post-action-icon {
+            font-size: 18px;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .separator-line {
+            height: 1px;
+            background-color: #ccc;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .clear-float {
+            clear: both;
+        }
+    </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES DEMANDES</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <h1 class="section-title">COMMUNAUTÉ</h1>
+
+        <div class="community-container">
+            <div class="community-tabs-bar">
+                <div class="community-tab">PORTEFEUILLE</div>
+                <div class="community-tab" style="font-weight: 900;">RECENT</div>
+                <div class="community-tab">SUGGESTION</div>
+                <i class="fas fa-search community-search-icon"></i>
+            </div>
+
+            <div class="post-creation-area">
+                <textarea class="post-input-box"
+                    placeholder="Partage ton expérience ou pose une question ..."></textarea>
+                <i class="far fa-times-circle post-close-icon"></i>
+                <button class="btn-publier">Publier</button>
+                <div class="clear-float"></div>
+            </div>
+
+            <!-- Comment 1 -->
+            <div class="community-post">
+                <div class="post-header">
+                    <img src="https://i.pravatar.cc/150?img=12" class="post-avatar">
+                    <div>
+                        <div class="post-user-name">PRENOM NOM</div>
+                        <div class="separator-line"></div>
+                        <div class="post-content">Contenu</div>
+                    </div>
+                </div>
+                <div class="post-footer">
+                    <i class="fas fa-exclamation-triangle post-action-icon"></i>
+                    <i class="fas fa-comment-alt post-action-icon"></i>
+                    <i class="fas fa-thumbs-up post-action-icon"></i>
+                </div>
+            </div>
+
+            <!-- Comment 2 -->
+            <div class="community-post">
+                <div class="post-header">
+                    <img src="https://i.pravatar.cc/150?img=24" class="post-avatar">
+                    <div>
+                        <div class="post-user-name">PRENOM NOM</div>
+                        <div class="separator-line"></div>
+                        <div class="post-content">Contenu</div>
+                    </div>
+                </div>
+                <div class="post-footer">
+                    <i class="fas fa-exclamation-triangle post-action-icon"></i>
+                    <i class="fas fa-comment-alt post-action-icon"></i>
+                    <i class="fas fa-thumbs-up post-action-icon"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
