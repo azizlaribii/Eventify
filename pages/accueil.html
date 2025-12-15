@@ -37,8 +37,10 @@
             box-shadow: none;
             z-index: 100;
         }
-        
-        header nav a, .nav-icons i, .logo {
+
+        header nav a,
+        .nav-icons i,
+        .logo {
             color: white;
         }
 
@@ -57,22 +59,22 @@
             margin-left: 20px;
             cursor: pointer;
         }
-        
+
         /* HERO */
         .hero {
-            width: 100%; 
-            height: 550px; 
-            background-image: url("../Image/page home.png"); 
+            width: 100%;
+            height: 550px;
+            background-image: url("../Image/page home.png");
             background-size: cover;
-            background-position: center 30%; 
+            background-position: center 30%;
             display: flex;
             align-items: center;
             color: white;
             position: relative;
-            margin-top: 0; 
-            padding-top: 80px; 
+            margin-top: 0;
+            padding-top: 80px;
         }
-        
+
         .hero::before {
             content: '';
             position: absolute;
@@ -80,14 +82,14 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.4); 
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
-        
+
         .hero-content {
             margin-left: 100px;
             max-width: 550px;
-            z-index: 2; 
+            z-index: 2;
         }
 
         .hero h2 {
@@ -109,21 +111,21 @@
         .hero button {
             margin-top: 25px;
             padding: 10px 25px;
-            background: white; 
+            background: white;
             color: black;
             border: none;
-            border-radius: 50px; 
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 500;
             text-transform: uppercase;
         }
-        
+
         /* MENU ICONS */
         .menu {
             display: flex;
             justify-content: center;
-            gap: 120px; 
-            background: #efe4d0; 
+            gap: 120px;
+            background: #efe4d0;
             padding: 40px 0;
         }
 
@@ -137,21 +139,21 @@
         }
 
         .menu-item i {
-            font-size: 38px; 
+            font-size: 38px;
             margin-bottom: 15px;
         }
-        
+
         .menu-item p {
             font-size: 14px;
             text-transform: uppercase;
         }
-        
+
         /* TESTIMONIALS */
         .testimonials {
             text-align: center;
             padding: 50px 0;
         }
-        
+
         .testimonials h3 {
             font-size: 16px;
             font-weight: 500;
@@ -169,18 +171,18 @@
         .cards {
             display: flex;
             justify-content: center;
-            gap: 30px; 
+            gap: 30px;
             margin-top: 30px;
             flex-wrap: wrap;
         }
 
         .card {
-            width: 330px; 
+            width: 330px;
             background: white;
             padding: 25px;
             border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            text-align: left; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            text-align: left;
             position: relative;
         }
 
@@ -191,7 +193,7 @@
         }
 
         .card img {
-            width: 50px; 
+            width: 50px;
             height: 50px;
             border-radius: 50%;
             object-fit: cover;
@@ -209,12 +211,12 @@
             color: #777;
             margin-top: 2px;
         }
-        
+
         .card .stars {
             position: absolute;
             top: 20px;
             right: 20px;
-            color: #ffc107; 
+            color: #ffc107;
             font-size: 14px;
         }
 
@@ -225,191 +227,209 @@
         }
 
         /* FOOTER - CORRECTION FINALE POUR CORRESPONDRE À L'IMAGE */
-       /* FOOTER - CORRECTION FINALE : EVENTIFY à gauche, Contacts au centre */
-footer {
-    background: #30261C; 
-    color: white;
-    /* Conserver un padding horizontal pour décaler le contenu de la bordure */
-    padding: 40px 100px; 
-    margin-top: 40px;
-    display: block; 
-    text-align: left; /* Définit l'alignement par défaut du h2 */
-}
+        /* FOOTER - CORRECTION FINALE : EVENTIFY à gauche, Contacts au centre */
+        footer {
+            background: #30261C;
+            color: white;
+            /* Conserver un padding horizontal pour décaler le contenu de la bordure */
+            padding: 40px 100px;
+            margin-top: 40px;
+            display: block;
+            text-align: left;
+            /* Définit l'alignement par défaut du h2 */
+        }
 
-footer h2 {
-    font-size: 32px; 
-    font-weight: 700;
-    margin-bottom: 5px; /* Augmenter l'espace pour séparer des contacts centrés */
-    letter-spacing: 1.5px;
-    /* Reste naturellement aligné à gauche grâce au text-align: left du parent */
-}
+        footer h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            /* Augmenter l'espace pour séparer des contacts centrés */
+            letter-spacing: 1.5px;
+            /* Reste naturellement aligné à gauche grâce au text-align: left du parent */
+        }
 
-.footer-contacts {
-    /* Nouveau conteneur pour centrer les contacts */
-    width: 100%;
-    max-width: 1200px; /* Limite maximale pour centrer les contacts sur les grands écrans */
-    margin: 0 auto; /* Permet de centrer horizontalement ce conteneur */
-    display: flex;
-    justify-content: center; /* ALIGNEMENT CENTRAL DES CONTACTS */
-    gap: 80px; 
-    align-items: center;
-    padding: 0; /* Assurez-vous qu'il n'y a pas de padding qui perturbe le centrage */
-}
+        .footer-contacts {
+            /* Nouveau conteneur pour centrer les contacts */
+            width: 100%;
+            max-width: 1200px;
+            /* Limite maximale pour centrer les contacts sur les grands écrans */
+            margin: 0 auto;
+            /* Permet de centrer horizontalement ce conteneur */
+            display: flex;
+            justify-content: center;
+            /* ALIGNEMENT CENTRAL DES CONTACTS */
+            gap: 80px;
+            align-items: center;
+            padding: 0;
+            /* Assurez-vous qu'il n'y a pas de padding qui perturbe le centrage */
+        }
 
-.footer-line {
-    display: flex;
-    align-items: center;
-    margin: 0;
-    font-size: 16px; 
-    font-weight: 500;
-}
+        .footer-line {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            font-size: 16px;
+            font-weight: 500;
+        }
 
-.footer-line i {
-    margin-right: 15px; 
-    font-size: 20px; 
-}
-        
+        .footer-line i {
+            margin-right: 15px;
+            font-size: 20px;
+        }
+
         /* Retiré .footer-line p car le texte n'est plus dans un paragraphe */
-
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">EVENTIFY</div>
+    <header>
+        <div class="logo">EVENTIFY</div>
 
-    <nav>
-        <a href="accueil.html">ACCUEIL</a>
-        <a href="demandes_disponibles.html">DEMANDE</a>
-        <a href="dashboard_event.html">EVENT</a>
-        <a href="compte_historique.html">HISTORIQUE</a>
-        <a href="mes_missions.html">MODE</a>
-    </nav>
+        <nav>
+            <a href="accueil.html">ACCUEIL</a>
+            <a href="demandes_disponibles.html">DEMANDE</a>
+            <a href="dashboard_event.html">EVENT</a>
+            <a href="compte_historique.html">HISTORIQUE</a>
+            <a href="mes_missions.html">MODE</a>
+        </nav>
 
-    <div class="nav-icons">
-        <i class="fas fa-search"></i> 
-        <i class="fas fa-user"></i>
-    </div>
-</header>
+        <div class="nav-icons">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-user"></i>
+        </div>
+    </header>
 
-<section class="hero"> 
-    <div class="hero-content">
-        <h2>Bienvenue 😎</h2>
-        <h1>Demande, aide, gagne tout<br> commence ici.</h1>
-        <p>Envie d’aider ou besoin d’un coup de main ? Lance ton service !</p>
-<a href="creer_demande.html">
-    <button>Order now</button>
-</a>
-    </div>
-</section>
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Bienvenue 😎</h2>
+            <h1>Demande, aide, gagne tout<br> commence ici.</h1>
+            <p>Envie d’aider ou besoin d’un coup de main ? Lance ton service !</p>
+            <a href="creer_demande.html">
+                <button>Order now</button>
+            </a>
+        </div>
+    </section>
 
-<section class="menu">
-    <div class="menu-item">
-        <i class="fas fa-pencil-alt"></i>
-        <p>CRÉE DEMANDE</p>
-    </div>
+    <section class="menu">
+        <a href="demandes_disponibles.html" class="menu-item" style="text-decoration: none;">
+            <img src="../Image/icon_financial.png" alt="Besoin Financier"
+                style="width: 50px; height: 50px; margin-bottom: 10px;">
+            <p>BESOIN FINANCIER</p>
+        </a>
 
-    <div class="menu-item">
-        <i class="fas fa-calendar-alt"></i>
-        <p>ÉVÈNEMENT</p>
-    </div>
+        <a href="dashboard_event.html" class="menu-item" style="text-decoration: none;">
+            <i class="fas fa-calendar-alt"></i>
+            <p>ÉVÈNEMENT</p>
+        </a>
 
-    <div class="menu-item">
-        <i class="fas fa-users"></i>
-        <p>CLUB</p>
-    </div>
+        <a href="communaute.html" class="menu-item" style="text-decoration: none;">
+            <i class="fas fa-users"></i>
+            <p>CLUB</p>
+        </a>
 
-    <div class="menu-item">
-        <i class="fas fa-user"></i>
-        <p>PROFIL</p>
-    </div>
-</section>
+        <a href="profil.html" class="menu-item" style="text-decoration: none;">
+            <i class="fas fa-user"></i>
+            <p>PROFIL</p>
+        </a>
+    </section>
 
-<section class="testimonials">
+    <section class="testimonials">
 
-    <h3>Viens partager l’esprit étudiant !</h3>
-    <h2>NOS UTILISATEURS SATISFAITS</h2>
+        <h3>Viens partager l’esprit étudiant !</h3>
+        <h2>NOS UTILISATEURS SATISFAITS</h2>
 
-    <div class="cards">
+        <div class="cards">
 
-        <div class="card">
-            <div class="stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <div class="card-header">
-                <img src="https://img.freepik.com/photos-gratuite/portrait-eleve-sexe-masculin-hipster-ravi-cheveux-croquants_176532-8157.jpg?semt=ais_se_enriched&w=740&q=80" alt="Avatar Karim Jaziri">
-                <div class="card-info">
-                    <h4>KARIM JAZIRI</h4>
-                    <p class="year">3ᵉ ANNÉE DE DESIGN</p>
+            <div class="card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
-            </div>
-            <p class="text">
-                "UNE VRAIE RÉVOLUTION POUR LA VIE ÉTUDIANTE ! ÉCHANGES RAPIDES,
-                AIDE ENTRE ÉTUDIANTS ET AGENDA DU CAMPUS TOUJOURS À JOUR !"
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-            </div>
-            <div class="card-header">
-                <img src="https://us.123rf.com/450wm/fizkes/fizkes2111/fizkes211100411/177098928-in-a-perfect-mood-headshot-portrait-of-young-man-standing-indoors-near-large-window-laugh.jpg" alt="Avatar Ahmed Kallel">
-                <div class="card-info">
-                    <h4>AHMED KALLEL</h4>
-                    <p class="year">1ʳᵉ ANNÉE DE COMMERCE</p>
+                <div class="card-header">
+                    <img src="https://img.freepik.com/photos-gratuite/portrait-eleve-sexe-masculin-hipster-ravi-cheveux-croquants_176532-8157.jpg?semt=ais_se_enriched&w=740&q=80"
+                        alt="Avatar Karim Jaziri">
+                    <div class="card-info">
+                        <h4>KARIM JAZIRI</h4>
+                        <p class="year">3ᵉ ANNÉE DE DESIGN</p>
+                    </div>
                 </div>
+                <p class="text">
+                    "UNE VRAIE RÉVOLUTION POUR LA VIE ÉTUDIANTE ! ÉCHANGES RAPIDES,
+                    AIDE ENTRE ÉTUDIANTS ET AGENDA DU CAMPUS TOUJOURS À JOUR !"
+                </p>
             </div>
-            <p class="text">
-                "CETTE APP A CHANGÉ MA VIE ÉTUDIANTE ! J'AI PU TROUVER QUELQU'UN POUR M'ACHETER UN CAFÉ ET J'AI MÊME GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS, ET JE NE RATE PLUS AUCUN ÉVÉNEMENT DU CAMPUS"
-            </p>
-        </div>
 
-        <div class="card">
-            <div class="stars">
-                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-            </div>
-            <div class="card-header">
-                <img src="https://static.vecteezy.com/ti/photos-gratuite/t2/60192203-une-sur-de-soi-jeune-professionnel-femme-portant-des-lunettes-et-une-noir-blazer-souriant-tandis-que-permanent-avec-bras-franchi-dans-une-moderne-bureau-parametre-photo.jpg" alt="Avatar Sarah Ben Ali">
-                <div class="card-info">
-                    <h4>SARAH BEN ALI</h4>
-                    <p class="year">2ᵉ ANNÉE D'INGÉNIERIE</p>
+            <div class="card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                 </div>
+                <div class="card-header">
+                    <img src="https://us.123rf.com/450wm/fizkes/fizkes2111/fizkes211100411/177098928-in-a-perfect-mood-headshot-portrait-of-young-man-standing-indoors-near-large-window-laugh.jpg"
+                        alt="Avatar Ahmed Kallel">
+                    <div class="card-info">
+                        <h4>AHMED KALLEL</h4>
+                        <p class="year">1ʳᵉ ANNÉE DE COMMERCE</p>
+                    </div>
+                </div>
+                <p class="text">
+                    "CETTE APP A CHANGÉ MA VIE ÉTUDIANTE ! J'AI PU TROUVER QUELQU'UN POUR M'ACHETER UN CAFÉ ET J'AI MÊME
+                    GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS, ET JE NE RATE PLUS AUCUN ÉVÉNEMENT DU CAMPUS"
+                </p>
             </div>
-            <p class="text">
-                "SUPER PRATIQUE ! J'AI GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS ET JE NE RATE PLUS AUCUNE ACTIVITÉ OU CLUB DU CAMPUS."
-            </p>
-        </div>
 
-    </div>
-    <div style="margin-top: 30px;">
-        <span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #30261C; margin: 0 5px;"></span>
-        <span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #8B643C; margin: 0 5px;"></span>
-        <span style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #CBBAA9; margin: 0 5px;"></span>
-    </div>
-</section>
+            <div class="card">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                        class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <div class="card-header">
+                    <img src="https://static.vecteezy.com/ti/photos-gratuite/t2/60192203-une-sur-de-soi-jeune-professionnel-femme-portant-des-lunettes-et-une-noir-blazer-souriant-tandis-que-permanent-avec-bras-franchi-dans-une-moderne-bureau-parametre-photo.jpg"
+                        alt="Avatar Sarah Ben Ali">
+                    <div class="card-info">
+                        <h4>SARAH BEN ALI</h4>
+                        <p class="year">2ᵉ ANNÉE D'INGÉNIERIE</p>
+                    </div>
+                </div>
+                <p class="text">
+                    "SUPER PRATIQUE ! J'AI GAGNÉ UN PEU D'ARGENT EN AIDANT D'AUTRES ÉTUDIANTS ET JE NE RATE PLUS AUCUNE
+                    ACTIVITÉ OU CLUB DU CAMPUS."
+                </p>
+            </div>
 
-<footer>
-    <h2>EVENTIFY</h2>
-    
-    <div class="footer-contacts">
-        <div class="footer-line">
-            <i class="fas fa-envelope"></i>
-            Email: help@eventify.tn
         </div>
-    
-        <div class="footer-line">
-            <i class="fas fa-phone-alt"></i>
-            Contact: 92 225 335
+        <div style="margin-top: 30px;">
+            <span
+                style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #30261C; margin: 0 5px;"></span>
+            <span
+                style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #8B643C; margin: 0 5px;"></span>
+            <span
+                style="display: inline-block; width: 20px; height: 20px; border-radius: 50%; background: #CBBAA9; margin: 0 5px;"></span>
         </div>
-    
-        <div class="footer-line">
-            <i class="fab fa-linkedin-in"></i>
-            Linkedin: eventify.tn
+    </section>
+
+    <footer>
+        <h2>EVENTIFY</h2>
+
+        <div class="footer-contacts">
+            <div class="footer-line">
+                <i class="fas fa-envelope"></i>
+                Email: help@eventify.tn
+            </div>
+
+            <div class="footer-line">
+                <i class="fas fa-phone-alt"></i>
+                Contact: 92 225 335
+            </div>
+
+            <div class="footer-line">
+                <i class="fab fa-linkedin-in"></i>
+                Linkedin: eventify.tn
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
+
 </html>
