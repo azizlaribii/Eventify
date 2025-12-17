@@ -178,6 +178,17 @@
             </div>
         </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.reservation-card-title').forEach(function(el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function() { window.location.href = 'event_detail.html'; });
+      });
+      document.querySelectorAll('.reservation-card-info').forEach(function(el) {
+        el.innerHTML = el.innerHTML.replace(/Nom du club/g, '<a href="club_detail.html" style="color:#555;text-decoration:none;">Nom du club</a>');
+      });
+    });
+    </script>
     </main>
 
     <!-- Footer -->

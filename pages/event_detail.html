@@ -192,6 +192,15 @@
             <i class="fas fa-share-square share-icon"></i>
         </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var club = document.querySelector('.event-subtitle');
+      if (club) {
+        club.style.cursor = 'pointer';
+        club.addEventListener('click', function() { window.location.href = 'club_detail.html'; });
+      }
+    });
+    </script>
     </main>
 
     <!-- Footer -->

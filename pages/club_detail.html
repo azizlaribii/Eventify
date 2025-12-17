@@ -254,6 +254,14 @@
             </div>
         </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.event-card-horizontal-content > div:first-child').forEach(function(el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function() { window.location.href = 'event_detail.html'; });
+      });
+    });
+    </script>
     </main>
 
     <!-- Footer -->

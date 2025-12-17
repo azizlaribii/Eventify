@@ -221,9 +221,12 @@
         <div class="event-filter-bar">
             <div>
                 <select class="filter-dropdown">
-                    <option>Tous les eve...</option>
+                    <option>Tous les évènements</option>
+                    <option>Hackathons</option>
+                    <option>Workshops</option>
+                    <option>Conferences</option>
+                    <option>autre</option>
                 </select>
-                <span style="font-weight: bold; font-size: 14px;">Jun 5, 2023</span>
             </div>
         </div>
 
@@ -369,6 +372,17 @@
             </div>
         </div>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.event-card-title').forEach(function(el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function() { window.location.href = 'event_detail.html'; });
+      });
+      document.querySelectorAll('.event-card-info').forEach(function(el) {
+        el.innerHTML = el.innerHTML.replace(/Nom du club/g, '<a href="club_detail.html" style="color:#555;text-decoration:none;">Nom du club</a>');
+      });
+    });
+    </script>
     </main>
 
     <!-- Footer -->
