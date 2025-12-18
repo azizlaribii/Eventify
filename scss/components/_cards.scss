@@ -1,0 +1,40 @@
+@use '../base/variables' as *;
+
+.card {
+    background-color: $color-white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: $color-primary;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.status-tag {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.status-en-cours {
+    color: $color-success;
+    background-color: rgba($color-success, 0.1);
+}
+
+.status-en-attent {
+    color: $color-pending;
+    background-color: rgba($color-pending, 0.1);
+}

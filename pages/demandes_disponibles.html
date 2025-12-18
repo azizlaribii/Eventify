@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Mes Missions</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Page-specific styles for Mes Missions */
+        .missions-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+
+
+        .search-box {
+            position: relative;
+           
+
+        }
+
+        .search-box input {
+            padding: 8px 30px 8px 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+            width: 380px;
+        }
+
+        .search-box .fa-search {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+            cursor: pointer;
+        }
+
+        .filter-dropdown {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .filter-dropdown select {
+            padding: 5px;
+            border: none;
+            background-color: transparent;
+            font-weight: bold;
+            color: var(--color-primary);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .mission-list {
+            background-color: var(--color-white);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .mission-item {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr 2fr 1fr 1fr;
+            /* Avatar, Title, Date, Description, Status, Action */
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mission-item:last-child {
+            border-bottom: none;
+        }
+
+        .mission-header-row {
+            font-weight: bold;
+            color: #777;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--color-primary);
+            margin-bottom: 10px;
+        }
+
+        .mission-user-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .mission-user-info .user-avatar {
+            margin-right: 0;
+            margin-bottom: 5px;
+        }
+
+        .mission-title {
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+
+        .mission-actions i {
+            margin-left: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--color-primary);
+        }
+
+        .mission-actions .fa-times-circle {
+            color: var(--color-error);
+        }
+
+        .mission-actions .fa-check-circle {
+            color: var(--color-success);
+        }
+
+        .separator {
+            height: 2px;
+            background-color: var(--color-secondary);
+            margin: 30px 0;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .color-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .color-dot {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #333;
+        }
+
+        .color-dot:nth-child(2) {
+            background-color: var(--color-primary);
+        }
+
+        .color-dot:nth-child(3) {
+            background-color: var(--color-secondary);
+        }
+
+        .color-dot:nth-child(4) {
+            background-color: var(--color-background);
+            border: 1px solid #ccc;
+        }
+
+        .return-button-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .return-button {
+            padding: 10px 25px;
+            background-color: var(--color-white);
+            border: 1px solid #ccc;
+            color: var(--color-text);
+            border-radius: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .mission-item {
+                grid-template-columns: 60px 1fr;
+                grid-template-areas:
+                    "avatar title"
+                    "avatar date"
+                    "avatar description"
+                    "avatar status"
+                    "avatar action";
+                gap: 5px 10px;
+            }
+
+            .mission-header-row {
+                display: none;
+            }
+
+            .mission-user-info {
+                grid-area: avatar;
+            }
+
+            .mission-title {
+                grid-area: title;
+            }
+
+            .mission-date {
+                grid-area: date;
+            }
+
+            .mission-description {
+                grid-area: description;
+            }
+
+            .mission-status {
+                grid-area: status;
+            }
+
+            .mission-actions {
+                grid-area: action;
+                justify-self: start;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">ACCUEIL</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES MISSIONS</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <div class="missions-header">
+            <h1 class="section-title">DEMANDES DISPONIBLE</h1>
+                <div class="search-box" >
+                    <input type="text" placeholder="SEARCH ...">
+                    <i class="fas fa-search" ></i>
+                
+             
+            </div>
+        </div>
+
+        <div class="mission-list">
+            <!-- Header Row (Hidden on small screens) -->
+            <div class="mission-item mission-header-row">
+                <div></div> <!-- Avatar space -->
+                <div>TITRE</div>
+                <div>DATE</div>
+                <div>DESCRIPTION</div>
+                <div>STATUS</div>
+                <div>ACTION</div>
+            </div>
+
+            <!-- Mission Item 1 -->
+            <div class="mission-item">
+                <div class="mission-user-info">
+                    <img src="https://i.pravatar.cc/150?img=4" alt="Ahmed Kallel" class="user-avatar">
+                    <span>AHMED KALLEL</span>
+                </div>
+                <div class="mission-title">Demande 1</div>
+                <div class="mission-date">14/11/2024</div>
+                <div class="mission-description">Acheter un stylo 2DT</div>
+                <div class="mission-status"><span class="status-tag status-en-attent">en Attent</span></div>
+                <div class="mission-actions">
+                    <a href="demande_detaillee.html">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <i class="fas fa-times-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+            </div>
+
+            <!-- Mission Item 2 -->
+            <div class="mission-item" style="background-color: rgba(255, 255, 255, 0.8);">
+                <div class="mission-user-info">
+                    <img src="https://i.pravatar.cc/150?img=5" alt="Salma Ben Ali" class="user-avatar">
+                    <span>SALMA BEN ALI</span>
+                </div>
+                <div class="mission-title">Demande 2</div>
+                <div class="mission-date">14/11/2024</div>
+                <div class="mission-description">Acheter un Café 5dt</div>
+                <div class="mission-status"><span class="status-tag status-en-attent">en Attent</span></div>
+                <div class="mission-actions">
+                    <a href="demande_detaillee.html">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <i class="fas fa-times-circle"></i>
+                    <i class="fas fa-check-circle"></i>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="separator"></div>
+        <div class="color-indicators">
+            <div class="color-dot"></div>
+            <div class="color-dot"></div>
+            <div class="color-dot"></div>
+            <div class="color-dot"></div>
+        </div>
+
+        <div class="return-button-container">
+            <button class="button return-button" onclick="history.back()">Retour</button>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

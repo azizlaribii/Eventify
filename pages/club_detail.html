@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Détail Club</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .club-header-section {
+            display: flex;
+            gap: 40px;
+            padding: 40px 0;
+            align-items: flex-start;
+        }
+
+        .club-logo-box {
+            width: 250px;
+            height: 250px;
+            background-color: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            /* Slightly rounded */
+        }
+
+        .club-logo-box img {
+            width: 80%;
+            height: 80%;
+            object-fit: contain;
+            opacity: 0.1;
+            /* Placeholder effect */
+        }
+
+        .club-info-right {
+            flex: 1;
+            position: relative;
+        }
+
+        .club-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 5px;
+        }
+
+        .club-slogan {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .follow-icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .description-box {
+            background-color: #cbb4a3;
+            /* Beigey-brown */
+            padding: 20px;
+            border-radius: 20px;
+            min-height: 100px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+        }
+
+        .social-row {
+            display: flex;
+            gap: 30px;
+            font-size: 35px;
+            margin-top: 20px;
+            color: #000;
+        }
+
+        .social-row i {
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .social-row i:hover {
+            color: #555;
+        }
+
+        .upcoming-events-section {
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+
+        .upcoming-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .horizontal-event-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .event-card-horizontal-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            display: flex;
+            overflow: hidden;
+            height: 140px;
+        }
+
+        .event-card-horizontal-img {
+            width: 40%;
+            height: 100%;
+            background-color: #f5f5f5;
+            object-fit: cover;
+        }
+
+        .event-card-horizontal-content {
+            padding: 15px;
+            width: 60%;
+            position: relative;
+        }
+
+        .btn-reserve-small {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 11px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 900px) {
+            .club-header-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .club-info-right {
+                width: 100%;
+            }
+
+            .follow-icon {
+                position: relative;
+                top: auto;
+                right: auto;
+                margin-bottom: 20px;
+            }
+
+            .social-row {
+                justify-content: center;
+            }
+
+            .horizontal-event-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="../public/tailwind.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">HOME</a>
+                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+                <a href="mes_missions.html">MES DEMANDES</a>
+                <a href="evaluation.html">EVALUATION</a>
+                <a href="jeux.html">JEUX</a>
+                <a href="portefeuille.html">PORTEFEUILLE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="container">
+
+        <div class="club-header-section">
+            <div class="club-logo-box">
+                <i class="far fa-image" style="font-size: 100px; color: #ddd;"></i>
+            </div>
+
+            <div class="club-info-right">
+                <h1 class="club-title">Nom du club</h1>
+                <div class="club-slogan">Slogan du club</div>
+                <i class="fas fa-user-plus follow-icon"></i>
+
+                <div class="description-box">
+                    Description Détaillé
+                </div>
+
+                <div class="social-row">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fas fa-phone-alt"></i>
+                    <i class="far fa-envelope"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="upcoming-events-section">
+            <h2 class="upcoming-title">EVENEMENTS À VENIR :</h2>
+
+            <div class="horizontal-event-list">
+                <!-- Card 1 -->
+                <div class="event-card-horizontal-item">
+                    <img src="https://picsum.photos/200/200?random=801" class="event-card-horizontal-img">
+                    <div class="event-card-horizontal-content">
+                        <div style="font-weight: bold; margin-bottom: 5px;">Title</div>
+                        <div style="font-size: 12px; color: #555;">Date<br>Lieu</div>
+                        <a href="reservation.html"><button class="btn-reserve-small">Réserver</button></a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="event-card-horizontal-item">
+                    <img src="https://picsum.photos/200/200?random=802" class="event-card-horizontal-img">
+                    <div class="event-card-horizontal-content">
+                        <div style="font-weight: bold; margin-bottom: 5px;">Title</div>
+                        <div style="font-size: 12px; color: #555;">Date<br>Lieu</div>
+                        <a href="reservation.html"><button class="btn-reserve-small">Réserver</button></a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="event-card-horizontal-item">
+                    <img src="https://picsum.photos/200/200?random=803" class="event-card-horizontal-img">
+                    <div class="event-card-horizontal-content">
+                        <div style="font-weight: bold; margin-bottom: 5px;">Title</div>
+                        <div style="font-size: 12px; color: #555;">Date<br>Lieu</div>
+                        <a href="reservation.html"><button class="btn-reserve-small">Réserver</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.event-card-horizontal-content > div:first-child').forEach(function(el) {
+        el.style.cursor = 'pointer';
+        el.addEventListener('click', function() { window.location.href = 'event_detail.html'; });
+      });
+    });
+    </script>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

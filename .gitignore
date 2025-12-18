@@ -1,0 +1,12 @@
+# Node modules
+node_modules/
+
+# Environnement local
+.env.local
+
+# Vercel configuration
+.vercel/
+
+# Optionnel : fichiers système
+.DS_Store
+Thumbs.db

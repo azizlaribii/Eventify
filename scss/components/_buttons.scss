@@ -1,0 +1,38 @@
+@use '../base/variables' as *;
+
+.button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.button-primary {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &:hover {
+        background-color: $color-secondary;
+    }
+}
+
+.button-success {
+    background-color: $color-success;
+    color: $color-white;
+
+    &:hover {
+        background-color: darken($color-success, 10%);
+    }
+}
+
+.button-secondary {
+    background-color: $color-white;
+    color: $color-primary;
+    border: 1px solid $color-primary;
+
+    &:hover {
+        background-color: $color-background;
+    }
+}
