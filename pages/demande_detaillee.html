@@ -5,10 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTIFY - Demande Détaillée</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        <link rel="stylesheet" href="../public/css/tailwind.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
-        /* Styles Généraux */
+        /* =========================================================
+           Variables & Styles de Base
+           ========================================================= */
+        :root {
+            --color-primary-brown: #8B643C;      /* Couleur de la barre de navigation */
+            --color-dark-brown: #30261C;         /* Couleur du footer */
+            --color-light-bg: #F0F0F0;           /* Couleur de fond de la page */
+            --color-input-bg: #EAE6E1;           /* Couleur de fond des champs */
+            --color-white: #FFFFFF;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -17,299 +27,299 @@
         }
 
         body {
-            background: #f8f8f8;
+            background-color: var(--color-light-bg);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* 1. NAVBAR - (Couleurs marron et beige de l'image) */
+        /* =========================================================
+           1. Header (Navbar style arrondi)
+           ========================================================= */
         header {
-            width: 100%;
-            padding: 15px 50px;
+            padding: 10px 40px;
+        }
+
+        .navbar {
+            background-color: var(--color-primary-brown);
+            border-radius: 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #8B643C; /* Couleur marron/beige de la navbar */
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 10px 30px;
+            color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-        
-        header .logo {
-            font-size: 22px;
+
+        .logo {
+            font-size: 24px;
             font-weight: bold;
-            color: white; 
             letter-spacing: 1px;
         }
 
-        header nav a {
-            margin: 0 20px;
-            text-decoration: none;
-            font-weight: 500;
-            color: white; 
-            text-transform: uppercase;
-            font-size: 14px;
-        }
-
-        .nav-icons i {
-            margin-left: 20px;
-            cursor: pointer;
+        nav a {
             color: white;
-            font-size: 18px;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
         }
 
-        /* 2. CONTENU PRINCIPAL - Demande Détaillée */
-        .main-content {
+        nav a:hover {
+            color: var(--color-dark-brown);
+        }
+
+        .search-icon {
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           2. Contenu Principal
+           ========================================================= */
+        .main-container {
+            flex: 1;
             display: flex;
             justify-content: center;
-            padding: 40px 100px;
-            gap: 50px;
+            align-items: center;
+            padding: 40px 20px;
         }
 
-        .side-illustration {
-            width: 400px; 
-            background: #f4e9d7; /* Couleur de fond de l'illustration */
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        .card-container {
+            background-color: var(--color-light-bg);
+            display: flex;
+            width: 1000px;
+            max-width: 100%;
+            gap: 40px;
+        }
+
+        /* Illustration de gauche */
+        .illustration-card {
+            flex: 1;
+            background: #8B643C; /* Fond beige clair pour l'image */
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .illustration-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Formulaire de droite */
+        .details-section {
+            flex: 1.5;
             padding: 10px;
         }
-        
-        .side-illustration img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-        }
-        
-        /* Conteneur principal du formulaire de demande */
-        .demand-details-container {
-            flex-grow: 1;
-            max-width: 650px;
-        }
 
-        .demand-details-container h2 {
-            font-size: 24px;
-            font-weight: 600;
+        .details-section h2 {
+            font-size: 22px;
+            font-weight: bold;
             margin-bottom: 30px;
-            color: #30261C;
+            color: #000;
         }
 
         .detail-group {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 25px;
+            align-items: center;
+            margin-bottom: 20px;
         }
 
         .detail-group label {
-            width: 150px;
-            font-size: 16px;
-            font-weight: 500;
+            width: 140px;
+            font-weight: 600;
+            font-size: 14px;
             color: #333;
-            padding-top: 10px; /* Aligner avec le haut du champ de saisie */
+            text-transform: uppercase;
         }
-        
+
         .input-field {
-            flex-grow: 1;
-            position: relative;
+            flex: 1;
+            background-color: var(--color-input-bg);
+            border: 1px solid #999;
+            border-radius: 12px;
+            padding: 10px 15px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         .input-field input, .input-field textarea {
-            width: 100%;
-            padding: 10px 15px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            font-size: 16px;
-            color: #333;
-            background: white;
-            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-        
-        .input-field textarea {
-            resize: none;
-            height: 100px;
-        }
-        
-        .input-field input:focus, .input-field textarea:focus {
-            border-color: #A68F6C;
+            background: transparent;
+            border: none;
             outline: none;
-            box-shadow: 0 0 5px rgba(166, 143, 108, 0.5);
+            width: 100%;
+            color: #444;
+            font-size: 14px;
         }
-        
+
+        .input-field textarea {
+            height: 100px;
+            resize: none;
+        }
+
         .input-field i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #8B643C;
-            font-size: 18px;
-            pointer-events: none; /* Rendre l'icône non cliquable */
-        }
-        
-        .input-field input.has-icon {
-            padding-right: 40px; /* Espace pour l'icône */
+            color: #333;
+            font-size: 20px;
         }
 
         /* Boutons d'action */
         .action-buttons {
             display: flex;
-            justify-content: flex-end; /* Aligner les boutons à droite */
-            margin-top: 40px;
+            justify-content: flex-end;
             gap: 20px;
+            margin-top: 30px;
         }
-        
-        .action-buttons button {
-            padding: 10px 25px;
+
+        .btn {
+            padding: 10px 30px;
+            border-radius: 20px;
             border: none;
-            border-radius: 8px;
-            cursor: pointer;
             font-weight: 600;
-            font-size: 16px;
-        }
-        
-        .action-buttons .share-btn {
-            background: white;
-        
-            color: #535251;
-            border: 0.5px solid #30261C;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .action-buttons .cancel-btn {
-             background: white;
-            color: #535251;
-            border: 0.5px solid #30261C;
+        .btn-white {
+            background-color: white;
+            color: #333;
         }
 
-
-        /* 3. FOOTER - (Alignement EVENTIFY à gauche, Contacts au centre) */
+        /* =========================================================
+           3. Footer
+           ========================================================= */
         footer {
-            background: #8B643C; /* Couleur marron très foncé */
+            background-color: var(--color-dark-brown);
             color: white;
-            padding: 40px 100px; 
-            margin-top: 60px;
-            display: block; 
-            text-align: left; 
-        }
-        
-        footer h2 {
-            font-size: 32px; 
-            font-weight: 700;
-            margin-bottom: 25px; 
-            letter-spacing: 1.5px;
+            padding: 30px 50px;
         }
 
-        .footer-contacts {
-            width: 100%;
-            max-width: 1200px; 
-            margin: 0 auto; 
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-content {
             display: flex;
-            justify-content: center; 
-            gap: 80px; 
+            justify-content: space-between;
             align-items: center;
-            padding: 0; 
+            flex-wrap: wrap;
         }
 
-        .footer-line {
+        .contact-item {
             display: flex;
             align-items: center;
-            margin: 0;
-            font-size: 16px; 
-            font-weight: 500;
+            margin-right: 40px;
+            font-size: 14px;
         }
 
-        .footer-line i {
-            margin-right: 15px; 
-            font-size: 20px; 
+        .contact-item i {
+            margin-right: 10px;
+            font-size: 20px;
         }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 
 <body>
 
-<header>
-    <div class="logo">EVENTIFY</div>
-
-    <nav>
-        <a href="accueil.html">ACCUEIL</a>
-        <a href="#">DEMANDE</a>
-        <a href="#">EVENT</a>
-        <a href="compte_historique.html">HISTORIQUE</a>
-    </nav>
-
-    <div class="nav-icons">
-        <i class="fas fa-search"></i> 
-    </div>
-</header>
-
-<section class="main-content">
-    
-    <div class="side-illustration">
-        <img src="../Image/demande.png" alt="MyUniLife Connect. Help. Live.">
-    </div>
-
-    <div class="demand-details-container">
-        <h2>DEMANDE DÉTAILLÉE</h2>
-
-        <div class="details-form">
-            
-            <div class="detail-group">
-                <label for="titre">TITRE :</label>
-                <div class="input-field">
-                    <input type="text" id="titre" value="Demande : Salma ben ali" readonly>
-                </div>
+    <header>
+        <div class="navbar">
+            <div class="logo">EVENTIFY</div>
+            <nav>
+                <a href="#">ACCUEIL</a>
+                <a href="#">DEMANDE</a>
+                <a href="#">EVENT</a>
+                <a href="#">HISTORIQUE</a>
+            </nav>
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
             </div>
-
-            <div class="detail-group">
-                <label for="description">DESCRIPTION :</label>
-                <div class="input-field">
-                    <textarea id="description" readonly>Je suis en salle G406, quelqu'un peut m'achter un café?</textarea>
-                </div>
-            </div>
-
-            <div class="detail-group">
-                <label for="recompense">RÉCOMPENSE :</label>
-                <div class="input-field">
-                    <input type="text" id="recompense" value="3 dt" readonly>
-                </div>
-            </div>
-
-            <div class="detail-group">
-                <label for="adresse">ADRESSE :</label>
-                <div class="input-field">
-                    <input type="text" id="adresse" value="Bloc G Salle G406" readonly>
-                </div>
-            </div>
-
-            <div class="detail-group">
-                <label for="date">DATE :</label>
-                <div class="input-field">
-                    <input type="text" id="date" value="14/11/2025 12:20" class="has-icon" readonly>
-                    <i class="fas fa-calendar-alt"></i> 
-                </div>
-            </div>
-
         </div>
-      <div class="action-buttons">
-                    <button class="button button-secondary">Retour</button>
-                    <button class="button button-primary">Accepter</button>
+    </header>
+
+    <section class="main-container">
+        <div class="card-container">
+            <div class="illustration-card">
+                <img src="../Image/demande.png"  alt="Illustration MyUniLife">
+            </div>
+
+            <div class="details-section">
+                <h2>DEMANDE DÉTAILLÉ</h2>
+
+                <div class="detail-group">
+                    <label>TITRE :</label>
+                    <div class="input-field">
+                        <input type="text" value="Demande : Salma ben ali" readonly>
+                    </div>
                 </div>
-</section>
 
+                <div class="detail-group">
+                    <label>DÉSCRIPTION :</label>
+                    <div class="input-field">
+                        <textarea readonly>Je suis en salle G406, quelqu'un peut m'acheter un café ?</textarea>
+                    </div>
+                </div>
 
-<footer>
-    <h2>EVENTIFY</h2>
-    
-    <div class="footer-contacts">
-        <div class="footer-line">
-            <i class="fas fa-envelope"></i>
-            Email: help@eventify.tn
+                <div class="detail-group">
+                    <label>RÉCOMPENSE :</label>
+                    <div class="input-field">
+                        <input type="text" value="3 dt" readonly>
+                    </div>
+                </div>
+
+                <div class="detail-group">
+                    <label>ADRESSE :</label>
+                    <div class="input-field">
+                        <input type="text" value="Bloc G Salle G406" readonly>
+                    </div>
+                </div>
+
+                <div class="detail-group">
+                    <label>DATE :</label>
+                    <div class="input-field">
+                        <input type="text" value="14/11/2025 12:20" readonly>
+                        <i class="fa-solid fa-calendar-days"></i>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="btn btn-white">Partager</button>
+                    <button class="btn btn-white" onclick="history.back()">Anuller</button>
+                </div>
+            </div>
         </div>
-    
-        <div class="footer-line">
-            <i class="fas fa-phone-alt"></i>
-            Contact: 92 225 335
+    </section>
+
+    <footer>
+        <div class="footer-logo">EVENTIFY</div>
+        <div class="footer-content">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>Email: <a href="mailto:help@eventify.tn">help@eventify.tn</a></span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone-alt"></i>
+                <span>Contact: 92 225 335</span>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <span>Linkedin eventify.tn</span>
+            </div>
         </div>
-    
-        <div class="footer-line">
-            <i class="fab fa-linkedin-in"></i>
-            Linkedin: eventify.tn
-        </div>
-    </div>
-</footer>
+    </footer>
 
 </body>
+
 </html>
