@@ -1,0 +1,283 @@
+@use '../base/variables' as *;
+
+.page-jeux {
+    background-color: #f0f0f0;
+    color: $color-text;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 2rem;
+        font-weight: 800;
+        margin-bottom: 30px;
+        color: #000;
+        text-align: left;
+    }
+
+    .grid-container {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        .game-card {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            color: white;
+            position: relative;
+            left: -50px; // As per user design
+
+            .game-title {
+                color: $hover-gold;
+                font-size: 1.4rem;
+                font-weight: 800;
+                text-transform: uppercase;
+                margin-bottom: 5px;
+            }
+
+            .game-subtitle {
+                color: #ccc;
+                font-size: 0.8rem;
+                margin-bottom: 20px;
+            }
+
+            .wheel-container {
+                position: relative;
+                width: 300px;
+                height: 300px;
+                margin: 0 auto 20px auto;
+
+                .wheel-pointer {
+                    position: absolute;
+                    top: -15px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-left: 15px solid transparent;
+                    border-right: 15px solid transparent;
+                    border-top: 30px solid $hover-gold;
+                    z-index: 10;
+                }
+
+                .wheel {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    border: 8px solid #B8860B;
+                    position: relative;
+                    overflow: hidden;
+                    transition: transform 5s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+                    box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+
+                    .wheel-segment {
+                        position: absolute;
+                        width: 50%;
+                        height: 50%;
+                        transform-origin: 100% 100%;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        clip-path: polygon(0 0, 100% 0, 100% 100%);
+
+                        .segment-text {
+                            position: absolute;
+                            font-weight: bold;
+                            font-size: 12px;
+                            white-space: nowrap;
+                            text-transform: uppercase;
+                            top: 100%;
+                            left: 100%;
+                            width: 150px;
+                            margin-top: -10px;
+                            transform-origin: 0 50%;
+                            transform: rotate(-112.5deg);
+                            text-align: left;
+                            padding-left: 30px;
+                        }
+                    }
+
+                    .wheel-segment:nth-child(odd) {
+                        background-color: #1a1a1a;
+
+                        .segment-text {
+                            color: $hover-gold;
+                        }
+                    }
+
+                    .wheel-segment:nth-child(even) {
+                        background-color: #DAA520;
+
+                        .segment-text {
+                            color: black;
+                        }
+                    }
+                }
+
+                .wheel-center {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    width: 50px;
+                    height: 50px;
+                    background: radial-gradient(circle, $hover-gold, #B8860B);
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 5;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+                    font-size: 1.2rem;
+                    color: $color-text;
+                }
+            }
+
+            .spin-btn {
+                background: linear-gradient(to bottom, $hover-gold, #B8860B);
+                border: none;
+                padding: 10px 40px;
+                border-radius: 25px;
+                font-weight: 800;
+                font-size: 1.1rem;
+                cursor: pointer;
+                box-shadow: 0 4px 10px rgba(218, 165, 32, 0.4);
+                text-transform: uppercase;
+                color: #1a1a1a;
+
+                &:disabled {
+                    filter: grayscale(1);
+                    cursor: not-allowed;
+                }
+            }
+        }
+
+        .info-section {
+            width: 350px;
+
+            .spin-count-label {
+                font-weight: bold;
+                margin-bottom: 20px;
+                font-size: 1rem;
+            }
+
+            .history-card {
+                background: #e8e6e6;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+                padding: 20px;
+                margin-bottom: 20px;
+
+                .history-title {
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    font-size: 0.9rem;
+                    margin-bottom: 15px;
+                    color: $color-text;
+                }
+
+                .history-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    row-gap: 10px;
+                    font-size: 0.9rem;
+                    color: #444;
+
+                    .history-item-date {
+                        text-align: left;
+                    }
+
+                    .history-item-val {
+                        text-align: right;
+                        font-weight: 500;
+                    }
+                }
+            }
+
+            .total-pill {
+                display: inline-block;
+                border: 1px solid #888;
+                border-radius: 20px;
+                padding: 8px 25px;
+                background: #e0e0e0;
+                font-weight: 600;
+                margin-top: 10px;
+                font-size: 0.9rem;
+            }
+
+            .dots {
+                display: flex;
+                gap: 10px;
+                margin-top: 20px;
+
+                .dot {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    background-color: #ccc;
+
+                    &.black {
+                        background-color: #222;
+                    }
+
+                    &.brown {
+                        background-color: $header-brown;
+                    }
+
+                    &.beige {
+                        background-color: #D7CCC8;
+                    }
+                }
+            }
+        }
+    }
+
+    .banner {
+        background-color: #E6DFD5;
+        text-align: center;
+        padding: 30px;
+        margin-top: 50px;
+
+        .banner-icon {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        .banner-title {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .banner-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-style: italic;
+            color: #1a1a1a;
+            max-width: 700px;
+            margin: 0 auto;
+            text-transform: uppercase;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .grid-container {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
