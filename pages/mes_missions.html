@@ -6,323 +6,526 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTIFY - Mes Missions</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Page-specific styles for Mes Missions */
-        .missions-header {
+        body {
+            background-color: #f0f0f0;
+            /* Light Gray Background */
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        /* Floating Header */
+        .header {
+            background-color: #8B5E3C;
+            color: white;
+            padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 50px;
+            margin: 20px 40px;
+        }
+
+        .header .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: #FFD700;
+        }
+
+        .nav-search i {
+            font-size: 1.2rem;
+            opacity: 0.5;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Page Top Area */
+        .page-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            /* Changed to flex-start for filter alignment */
             margin-bottom: 30px;
         }
 
-        .search-filter-group {
+        .page-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #000;
+            text-transform: uppercase;
+            margin-top: 10px;
+        }
+
+        .search-filter-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+        }
+
+        /* Search Pill */
+        .search-pill {
+            background-color: white;
+            border-radius: 30px;
+            padding: 10px 20px;
             display: flex;
             align-items: center;
-            gap: 20px;
+            width: 350px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            padding: 8px 30px 8px 10px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            outline: none;
-            width: 200px;
-        }
-
-        .search-box .fa-search {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #777;
-            cursor: pointer;
-        }
-
-        .filter-dropdown {
-            display: flex;
-            align-items: center;
-            font-size: 14px;
-            color: #777;
-        }
-
-        .filter-dropdown select {
-            padding: 5px;
+        .search-pill input {
             border: none;
-            background-color: transparent;
-            font-weight: bold;
-            color: var(--color-primary);
             outline: none;
-            cursor: pointer;
+            flex: 1;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .mission-list {
-            background-color: var(--color-white);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        .search-pill i {
+            color: #000;
+            font-size: 1.1rem;
         }
 
-        .mission-item {
-            display: grid;
-            grid-template-columns: 80px 1fr 1fr 2fr 1fr 1fr;
-            /* Avatar, Title, Date, Description, Status, Action */
+        /* Filter Pill */
+        .filter-pill {
+            background-color: white;
+            border-radius: 20px;
+            padding: 5px 20px;
+            display: flex;
             align-items: center;
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #000;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
-        .mission-item:last-child {
-            border-bottom: none;
+        .filter-pill i {
+            font-size: 0.8rem;
         }
 
-        .mission-header-row {
-            font-weight: bold;
-            color: #777;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--color-primary);
-            margin-bottom: 10px;
+        /* List Items Layout */
+        .list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
         }
 
-        .mission-user-info {
+        .list-row {
+            display: flex;
+            align-items: center;
+        }
+
+        .user-col {
+            width: 200px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-size: 12px;
             text-align: center;
+            flex-shrink: 0;
         }
 
-        .mission-user-info .user-avatar {
-            margin-right: 0;
+        .user-avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            background-color: #ddd;
+        }
+
+        .user-name {
+            font-weight: 800;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            color: #000;
+        }
+
+        .data-col {
+            flex-grow: 1;
+        }
+
+        /* Labels Row */
+        .labels-row {
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 2.5fr 1fr 1fr;
+            padding: 0 40px;
             margin-bottom: 5px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: #333;
+            text-transform: uppercase;
         }
 
-        .mission-title {
-            font-weight: bold;
-            color: var(--color-primary);
+        /* Data Pill */
+        .data-pill {
+            background-color: #Eae8e3;
+            /* Beige/Grey */
+            border-radius: 50px;
+            padding: 20px 40px;
+            display: grid;
+            grid-template-columns: 1.5fr 1.5fr 2.5fr 1fr 1fr;
+            align-items: center;
         }
 
-        .mission-actions i {
-            margin-left: 10px;
+        .data-text {
+            font-weight: 500;
+            font-size: 1.1rem;
+            color: #000;
+        }
+
+        .status-text {
+            font-weight: 800;
+            color: #2E7D32;
+            /* Green */
+            font-size: 1.1rem;
+        }
+
+        .actions-cell {
+            display: flex;
+            gap: 15px;
+            font-size: 1.8rem;
+        }
+
+        .actions-cell i {
             cursor: pointer;
-            font-size: 18px;
-            color: var(--color-primary);
+            color: #000;
         }
 
-        .mission-actions .fa-times-circle {
-            color: var(--color-error);
+        /* Bottom Section */
+        .bottom-divider-line {
+            height: 1px;
+            background-color: #888;
+            width: 60%;
+            margin: 60px auto 40px auto;
         }
 
-        .mission-actions .fa-check-circle {
-            color: var(--color-success);
-        }
-
-        .separator {
-            height: 2px;
-            background-color: var(--color-secondary);
-            margin: 30px 0;
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .color-indicators {
+        .dots-container {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            margin-top: 20px;
+            gap: 12px;
+            margin-bottom: 40px;
         }
 
-        .color-dot {
-            width: 15px;
-            height: 15px;
+        .dot {
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            background-color: #333;
         }
 
-        .color-dot:nth-child(2) {
-            background-color: var(--color-primary);
+        .dot-1 {
+            background-color: #2b2b2b;
         }
 
-        .color-dot:nth-child(3) {
-            background-color: var(--color-secondary);
+        .dot-2 {
+            background-color: #8B5E3C;
         }
 
-        .color-dot:nth-child(4) {
-            background-color: var(--color-background);
-            border: 1px solid #ccc;
+        .dot-3 {
+            background-color: #D7CCC8;
         }
 
-        .return-button-container {
+        .btn-retour-container {
+            text-align: right;
+            margin-bottom: 50px;
+        }
+
+        .btn-retour {
+            background-color: white;
+            border: none;
+            padding: 12px 50px;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 1rem;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            color: #1a1a1a;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #3E2723;
+            color: white;
+            padding: 40px 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: flex-end;
-            margin-top: 20px;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 0 40px;
         }
 
-        .return-button {
-            padding: 10px 25px;
-            background-color: var(--color-white);
-            border: 1px solid #ccc;
-            color: var(--color-text);
-            border-radius: 20px;
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
-            .mission-item {
-                grid-template-columns: 60px 1fr;
-                grid-template-areas:
-                    "avatar title"
-                    "avatar date"
-                    "avatar description"
-                    "avatar status"
-                    "avatar action";
-                gap: 5px 10px;
+        .footer-links {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .footer-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .footer-link-item i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .header {
+                flex-direction: column;
+                margin: 20px;
+                border-radius: 20px;
+                gap: 15px;
             }
 
-            .mission-header-row {
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .page-header-row {
+                flex-direction: column;
+                gap: 20px;
+                align-items: flex-start;
+            }
+
+            .search-filter-container {
+                align-items: flex-start;
+                width: 100%;
+            }
+
+            .search-pill {
+                width: 100%;
+            }
+
+            .list-row {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .user-col {
+                margin-bottom: 20px;
+            }
+
+            .labels-row {
                 display: none;
             }
 
-            .mission-user-info {
-                grid-area: avatar;
+            .data-pill {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                width: 100%;
+                text-align: center;
+                border-radius: 20px;
             }
 
-            .mission-title {
-                grid-area: title;
+            .actions-cell {
+                justify-content: center;
             }
 
-            .mission-date {
-                grid-area: date;
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
             }
 
-            .mission-description {
-                grid-area: description;
-            }
-
-            .mission-status {
-                grid-area: status;
-            }
-
-            .mission-actions {
-                grid-area: action;
-                justify-self: start;
+            .footer-links {
+                flex-direction: column;
+                gap: 20px;
             }
         }
     </style>
-    <link rel="stylesheet" href="../public/tailwind.css">
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">EVENTIFY</div>
-            <nav class="nav-links">
-                <a href="accueil.html">ACCUEIL</a>
-                <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
-                <a href="mes_missions.html">MES MISSIONS</a>
-                <a href="evaluation.html">EVALUATION</a>
-                <a href="jeux.html">JEUX</a>
-                <a href="portefeuille.html">PORTEFEUILLE</a>
-            </nav>
-            <div class="search-icon"><i class="fas fa-search"></i></div>
+    <!-- Floating Header -->
+    <div class="header">
+        <div class="logo">EVENTIFY</div>
+        <nav class="nav-links">
+            <a href="accueil.html">HOME</a>
+            <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+            <a href="mes_missions.html">MES DEMANDES</a>
+            <a href="evaluation.html">EVALUATION</a>
+            <a href="jeux.html">JEUX</a>
+            <a href="portefeuille.html">PORTEFEUILLE</a>
+            <a href="historique_demande.html">HISTORIQUE</a>
+        </nav>
+        <div class="nav-search">
+            <i class="fas fa-search"></i>
         </div>
-    </header>
+    </div>
 
-    <!-- Main Content Area -->
-    <main class="container">
-        <div class="missions-header">
-            <h1 class="section-title">MES MISSIONS</h1>
-            <div class="search-filter-group">
-                <div class="search-box">
+    <div class="container">
+
+        <!-- Page Title & Search/Filter -->
+        <div class="page-header-row">
+            <div class="page-title">MES MISSIONS</div>
+            <div class="search-filter-container">
+                <div class="search-pill">
                     <input type="text" placeholder="SEARCH ...">
                     <i class="fas fa-search"></i>
                 </div>
-                <div class="filter-dropdown">
-                    <i class="fas fa-sort-down"></i>
-                    <select>
-                        <option>PRIX</option>
-                        <option>DATE</option>
-                        <option>STATUS</option>
-                    </select>
+                <!-- Filter Dropdown -->
+                <div class="filter-pill">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>PRIX</span>
                 </div>
             </div>
         </div>
 
-        <div class="mission-list">
-            <!-- Header Row (Hidden on small screens) -->
-            <div class="mission-item mission-header-row">
-                <div></div> <!-- Avatar space -->
-                <div>TITRE</div>
-                <div>DATE</div>
-                <div>DESCRIPTION</div>
-                <div>STATUS</div>
-                <div>ACTION</div>
-            </div>
+        <!-- List -->
+        <div class="list-container">
 
-            <!-- Mission Item 1 -->
-            <div class="mission-item">
-                <div class="mission-user-info">
-                    <img src="https://i.pravatar.cc/150?img=4" alt="Ahmed Kallel" class="user-avatar">
-                    <span>AHMED KALLEL</span>
+            <!-- Item 1 -->
+            <div class="list-row">
+                <!-- User Left -->
+                <div class="user-col">
+                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        class="user-avatar" alt="User">
+                    <div class="user-name">AHMED KALLEL</div>
                 </div>
-                <div class="mission-title">Demande 1</div>
-                <div class="mission-date">14/11/2024</div>
-                <div class="mission-description">Acheter un stylo 2DT</div>
-                <div class="mission-status"><span class="status-tag status-en-cours">en cours</span></div>
-                <div class="mission-actions">
-                    <a href="demande_detaillee.html">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                    <i class="fas fa-times-circle"></i>
-                </div>
-            </div>
-
-            <!-- Mission Item 2 -->
-            <div class="mission-item" style="background-color: rgba(255, 255, 255, 0.8);">
-                <div class="mission-user-info">
-                    <img src="https://i.pravatar.cc/150?img=5" alt="Salma Ben Ali" class="user-avatar">
-                    <span>SALMA BEN ALI</span>
-                </div>
-                <div class="mission-title">Demande 2</div>
-                <div class="mission-date">14/11/2024</div>
-                <div class="mission-description">Acheter un Café 5dt</div>
-                <div class="mission-status"><span class="status-tag status-en-attent">en Attent</span></div>
-                <div class="mission-actions">
-                    <a href="demande_detaillee.html">
-                        <i class="fas fa-eye"></i>
-                    </a>
-                     <i class="fas fa-times-circle"></i>
+                <!-- Data Right -->
+                <div class="data-col">
+                    <div class="labels-row">
+                        <div>TITRE</div>
+                        <div>DATE</div>
+                        <div>DESCRIPTION</div>
+                        <div>STATUS</div>
+                        <div>ACTION</div>
+                    </div>
+                    <!-- Pill -->
+                    <div class="data-pill">
+                        <div class="data-text">Demande 1</div>
+                        <div class="data-text">14/11/2024</div>
+                        <div class="data-text">Acheter un stylo 2DT</div>
+                        <div class="status-text">en cour</div>
+                        <div class="actions-cell">
+                            <i class="far fa-eye"></i>
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Item 2 -->
+            <div class="list-row">
+                <!-- User Left -->
+                <div class="user-col">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&q=80"
+                        class="user-avatar" alt="User">
+                    <div class="user-name">SALMA BEN ALI</div>
+                </div>
+                <!-- Data Right -->
+                <div class="data-col">
+                    <div class="labels-row">
+                        <div>TITRE</div>
+                        <div>DATE</div>
+                        <div>DESCRIPTION</div>
+                        <div>STATUS</div>
+                        <div>ACTION</div>
+                    </div>
+                    <!-- Pill -->
+                    <div class="data-pill">
+                        <div class="data-text">Mission2</div>
+                        <div class="data-text">14/11/2024</div>
+                        <div class="data-text">Acheter un Café 5dt</div>
+                        <div class="status-text" style="color:#2E7D32;">en Attent</div>
+                        <div class="actions-cell">
+                            <i class="far fa-eye"></i>
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <div class="separator"></div>
-        <div class="color-indicators">
-            <div class="color-dot"></div>
-            <div class="color-dot"></div>
-            <div class="color-dot"></div>
-            <div class="color-dot"></div>
+        <!-- Divider Line (Simple line for this page) -->
+        <div class="bottom-divider-line"></div>
+
+        <!-- Dots -->
+        <div class="dots-container">
+            <div class="dot dot-1"></div>
+            <div class="dot dot-2"></div>
+            <div class="dot dot-3"></div>
         </div>
 
-        <div class="return-button-container">
-            <button class="button return-button" onclick="history.back()">Retour</button>
+        <!-- Retour Button -->
+        <div class="btn-retour-container">
+            <button class="btn-retour" onclick="history.back()">Retour</button>
         </div>
-    </main>
+
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">EVENTIFY</div>
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
-                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
-                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            <div class="footer-links">
+                <div class="footer-link-item">
+                    <i class="far fa-envelope"></i>
+                    <span>Email:help@eventify.tn</span>
+                </div>
+                <div class="footer-link-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Contact: 92 225 335</span>
+                </div>
+                <div class="footer-link-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>Linkedin eventify.tn</span>
+                </div>
             </div>
         </div>
     </footer>
