@@ -1,0 +1,18 @@
+// Base
+// Base
+@use 'base/legacy';
+@use 'base/variables';
+
+
+// Components
+@use 'components/header';
+@use 'components/footer';
+
+// Pages
+@use 'pages/demande_detaillee';
+@use 'pages/demandes_disponibles';
+@use 'pages/evaluation';
+@use 'pages/historique_demande';
+@use 'pages/jeux';
+@use 'pages/mes_missions';
+@use 'pages/portefeuille';
