@@ -8,26 +8,56 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* ================= HEADER ================= */
+        .header-pill {
+            background-color: #8b643e;
+            margin: 20px auto;
+            width: 90%;
+            border-radius: 50px;
+            padding: 15px 30px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .search-icon {
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="page-demande-detaillee">
 
     <!-- Header like Profil.html -->
-    <header
-        style="background-color: #8B6B4B; padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; color: white;">
-        <div class="logo" style="font-size: 24px; font-weight: bold;">EVENTIFY</div>
-        <nav style="display: flex; gap: 15px;">
-            <a href="accueil.html"
-                style="color: white; text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 500;">ACCUEIL</a>
-            <a href="creer_demande.html"
-                style="color: white; text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 500;">DEMANDE</a>
-            <a href="dashboard_event.html"
-                style="color: white; text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 500;">EVENT</a>
-            <a href="compte_historique.html"
-                style="color: white; text-decoration: none; font-size: 14px; text-transform: uppercase; font-weight: 500;">HISTORIQUE</a>
-        </nav>
-        <div class="search-icon" style="font-size: 18px; cursor: pointer;">
-            <i class="fas fa-search"></i>
+    <header class="header-pill">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">ACCUEIL</a>
+                <a href="creer_demande.html">DEMANDE</a>
+                <a href="dashboard_event.html">EVENT</a>
+                <a href="demande_detaillee_Copie.html">HISTORIQUE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
         </div>
     </header>
 
