@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENTIFY - Demandes Disponibles</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../public/tailwind.css">
+</head>
+    
+<body>
+
+    <!-- Header (Pill Style) -->
+    <header class="header header-pill">
+        <div class="header-content">
+            <div class="logo"><a href="accueil.html" style="text-decoration: none; color: inherit;">EVENTIFY</a></div>
+            <nav class="nav-links">
+                <a href="accueil.html">ACCUEIL</a>
+                <a href="demandes_disponibles.html">DEMANDE</a>
+                <a href="#">EVENT</a>
+                <a href="#">HISTORIQUE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="demandes-page">
+        <h1 class="page-title">LISTE DE DEMANDES</h1>
+
+        <div class="search-container">
+            <input type="text" placeholder="SEARCH ...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="demandes-grid">
+            <!-- Card 1 -->
+            <div class="demande-card">
+                <div class="card-header">
+                    <h3>DEMANDE : SALMA BEN ALI</h3>
+                    <div class="date">14/11/2024 12:20</div>
+                </div>
+                <div class="card-body">
+                    <div class="task">CAFÉ À ACHETER</div>
+                    <div class="reward">RÉCOMPENSE : 5 DT</div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-badge status-encours">En cours</span>
+                    <button class="btn-accepter">Accepter</button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="demande-card">
+                <div class="card-header">
+                    <h3>DEMANDE : SARAH BEN ALI</h3>
+                    <div class="date">14/11/2024 8H30</div>
+                </div>
+                <div class="card-body">
+                    <div class="task">PHOTOCOPIE DE DOCUMENTS</div>
+                    <div class="reward">RÉCOMPENSE : 3 DT</div>
+                </div>
+                <div class="card-footer">
+                    <!-- Used 'D' for generic or modify as needed -->
+                    <span class="status-badge status-terminer">Terminer</span>
+                    <button class="btn-accepter">Accepter</button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="demande-card">
+                <div class="card-header">
+                    <h3>DEMANDE : AHMED KALLEL</h3>
+                    <div class="date">14/11/2024 10:20</div>
+                </div>
+                <div class="card-body">
+                    <div class="task">SNACK RAPIDE</div>
+                    <div class="reward">RÉCOMPENSE : 8 DT</div>
+                </div>
+                <div class="card-footer">
+                    <span class="status-badge status-enattente">En attent</span>
+                    <button class="btn-accepter">Accepter</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="dots-container">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <section class="cta-create-section">
+        <h2>VOUS CHERCHEZ DE L'AIDE ? CRÉEZ VOTRE DEMANDE !</h2>
+        <a href="#" class="btn-create">Cree Demande</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">EVENTIFY</div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> Email:<a href="mailto:help@eventify.tn">help@eventify.tn</a></div>
+                <div><i class="fas fa-phone"></i> Contact: 92 225 335</div>
+                <div class="social-media"><i class="fab fa-linkedin"></i> <a href="#">Linkedin eventify.tn</a></div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
