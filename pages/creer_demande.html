@@ -23,38 +23,38 @@
             min-height: 100vh;
         }
 
-        /* ================= NAVBAR ================= */
-        header {
-            width: 100%;
-            padding: 15px 50px;
+        /* ================= HEADER ================= */
+        .header-pill {
+            background-color: #8b643e;
+            margin: 20px auto;
+            width: 90%;
+            border-radius: 50px;
+            padding: 15px 30px;
+        }
+
+        .header-content {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: #8B643C;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            justify-content: space-between;
         }
 
-        .logo-nav {
-            font-size: 22px;
+        .logo {
             font-weight: bold;
-            color: white;
-            letter-spacing: 1px;
+            font-size: 22px;
+            color: #fff;
         }
 
-        header nav a {
-            margin: 0 20px;
+        .nav-links a {
+            margin: 0 15px;
             text-decoration: none;
+            color: #fff;
             font-weight: 500;
-            color: white;
-            text-transform: uppercase;
-            font-size: 14px;
         }
 
-        .nav-icons i {
-            margin-left: 20px;
-            cursor: pointer;
-            color: white;
+        .search-icon {
+            color: #fff;
             font-size: 18px;
+            cursor: pointer;
         }
 
         /* ================= MAIN CONTENT ================= */
@@ -165,7 +165,8 @@
 
         /* ================= FOOTER (Identique à la photo) ================= */
         footer {
-            background: #30261C; /* Couleur exacte de la photo */
+            background: #30261C;
+            /* Couleur exacte de la photo */
             color: white;
             padding: 40px 100px;
             width: 100%;
@@ -180,7 +181,8 @@
 
         .footer-info-bar {
             display: flex;
-            justify-content: space-between; /* Alignement horizontal large */
+            justify-content: space-between;
+            /* Alignement horizontal large */
             align-items: center;
             flex-wrap: wrap;
             gap: 20px;
@@ -208,10 +210,12 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
             .main-content {
                 flex-direction: column;
                 padding: 30px;
             }
+
             .side-illustration {
                 width: 100%;
             }
@@ -221,17 +225,16 @@
 
 <body>
 
-    <header>
-        <div class="logo-nav">EVENTIFY</div>
-        <nav>
-            <a href="accueil.html">ACCUEIL</a>
-            <a href="demandes_disponiblescp.html">DEMANDE</a>
-            <a href="dashboard_event.html">EVENT</a>
-            <a href="compte_historique.html">HISTORIQUE</a>
-            <a href="mes_missions.html">MODE</a>
-        </nav>
-        <div class="nav-icons">
-            <i class="fas fa-search"></i>
+    <header class="header-pill">
+        <div class="header-content">
+            <div class="logo">EVENTIFY</div>
+            <nav class="nav-links">
+                <a href="accueil.html">ACCUEIL</a>
+                <a href="creer_demande.html">DEMANDE</a>
+                <a href="dashboard_event.html">EVENT</a>
+                <a href="demande_detaillee_Copie.html">HISTORIQUE</a>
+            </nav>
+            <div class="search-icon"><i class="fas fa-search"></i></div>
         </div>
     </header>
 
@@ -290,7 +293,7 @@
 
     <footer>
         <div class="footer-title">EVENTIFY</div>
-        
+
         <div class="footer-info-bar">
             <div class="info-item">
                 <i class="fas fa-envelope"></i>
