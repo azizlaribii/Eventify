@@ -2007,10 +2007,26 @@ body {
   margin: 0 auto;
   text-transform: uppercase;
 }
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .page-jeux .grid-container {
     flex-direction: column;
     align-items: center;
+    gap: 40px;
+  }
+  .page-jeux .grid-container .game-card {
+    left: 0;
+    width: 100%;
+    max-width: 450px;
+  }
+  .page-jeux .grid-container .info-section {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .page-jeux .grid-container .info-section .dots {
+    justify-content: center;
   }
 }
 
