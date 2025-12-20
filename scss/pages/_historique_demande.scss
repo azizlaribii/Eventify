@@ -233,27 +233,5 @@
                 }
             }
         }
-
-        @media (max-width: 900px) {
-            flex-direction: column;
-            padding: 40px 20px;
-            gap: 30px;
-
-            .sidebar {
-                width: 100%;
-                max-width: 400px;
-                margin: 0 auto;
-            }
-
-            .content {
-                padding-left: 0;
-            }
-
-            .history-table {
-                display: block;
-                overflow-x: auto;
-                white-space: nowrap;
-            }
-        }
     }
 }
