@@ -100,7 +100,126 @@
     </div>
 
     <div class="return-button-container">
-      <button class="button button-secondary">Retour</button>
+      <button class="button button-secondary" onclick="history.back()">Retour</button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">EVENTIFY</div>
+      <div class="footer-contact">
+        <div class="footer-item"><i class="far fa-envelope"></i> Email:help@eventify.tn</div>
+        <div class="footer-item"><i class="fas fa-phone-alt"></i> Contact: 92 225 335</div>
+        <div class="footer-item"><i class="fab fa-linkedin"></i> Linkedin eventify.tn</div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html><!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EVENTIFY - Mon Portefeuille</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-portefeuille">
+  <!-- Header -->
+  <header class="header">
+    <div class="logo">EVENTIFY</div>
+    <nav class="nav-links">
+      <a href="accueil.html">HOME</a>
+      <a href="demandes_disponibles.html">DEMANDE DISPONIBLE</a>
+      <a href="mes_missions.html">MES DEMANDES</a>
+      <a href="evaluation.html">EVALUATION</a>
+      <a href="jeux.html">JEUX</a>
+      <a href="portefeuille.html">PORTEFEUILLE</a>
+      <a href="historique_demande.html">HISTORIQUE</a>
+    </nav>
+    <div class="nav-icons">
+      <i class="fas fa-search"></i>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="container">
+    <h1 class="section-title portefeuille-header">MON PORTEFEUILLE</h1>
+
+    <div class="summary-cards">
+      <div class="summary-card card-solde">
+        <div class="summary-card-title">SOLDE ACTUEL</div>
+        <div class="summary-card-value">750DT</div>
+        <div class="summary-card-detail">DISPONIBILITÉ</div>
+        <i class="fas fa-wallet card-icon-top-right"></i>
+      </div>
+
+      <div class="summary-card card-attent">
+        <div class="summary-card-title">TRANSACTION EN ATTENTE</div>
+        <div class="summary-card-value">2</div>
+        <div class="summary-card-detail">27DT TOTAL</div>
+        <i class="fas fa-redo-alt card-icon-top-right"></i>
+      </div>
+
+      <div class="summary-card card-valider">
+        <div class="summary-card-title">TRANSACTION VALIDÉE</div>
+        <div class="summary-card-value">1</div>
+        <div class="summary-card-detail">AUJOURD'HUI</div>
+        <i class="fas fa-check-circle card-icon-top-right"></i>
+      </div>
+    </div>
+
+    <h2 class="transaction-list-title">TRANSACTIONS À VALIDER</h2>
+    <p style="margin-bottom: 20px; font-size: 14px">
+      VÉRIFIEZ ET APPROUVEZ LES DEMANDES DE PAIEMENT
+    </p>
+
+    <div class="transaction-validation-list">
+      <!-- Transaction Item 1 -->
+      <div class="transaction-item">
+        <div class="transaction-info">
+          <img src="https://i.pravatar.cc/150?img=1" alt="Avatar" class="user-avatar" />
+          <div class="transaction-details">
+            <div class="transaction-name">AHMED KALLEL</div>
+            <div class="transaction-description">STYLO 2DT</div>
+          </div>
+        </div>
+        <button class="validate-button btn-green">Valider</button>
+      </div>
+
+      <!-- Transaction Item 2 -->
+      <div class="transaction-item">
+        <div class="transaction-info">
+          <img src="https://i.pravatar.cc/150?img=2" alt="Avatar" class="user-avatar" />
+          <div class="transaction-details">
+            <div class="transaction-name">SARAH BEN ALI</div>
+            <div class="transaction-description">CAFE 5DT</div>
+          </div>
+        </div>
+        <button class="validate-button btn-white">Valider</button>
+      </div>
+
+      <!-- Transaction Item 3 -->
+      <div class="transaction-item">
+        <div class="transaction-info">
+          <img src="https://i.pravatar.cc/150?img=3" alt="Avatar" class="user-avatar" />
+          <div class="transaction-details">
+            <div class="transaction-name">KARIM JAZIRI</div>
+            <div class="transaction-description">PIZZA 20DT</div>
+          </div>
+        </div>
+        <button class="validate-button btn-white">Valider</button>
+      </div>
+    </div>
+
+    <div class="return-button-container">
+      <button class="button button-secondary" onclick="history.back()">Retour</button>
     </div>
   </main>
 
